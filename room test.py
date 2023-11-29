@@ -1,7 +1,7 @@
 import pygame
 from game_parameters import *
-from background import draw_background
 from player import Player
+from objects import barriers, Barrier
 
 #initialize pygame
 pygame.init()
@@ -15,7 +15,7 @@ clock = pygame.time.Clock()
 #setup
 running = True
 background =screen.copy()
-draw_background(background)
+background.fill((84, 84, 84))
 
 #create the player
 player = Player(JAIL_X_START + TILE_SIZE, SCREEN_HEIGHT/2)
@@ -23,8 +23,8 @@ player = Player(JAIL_X_START + TILE_SIZE, SCREEN_HEIGHT/2)
 # the different possible floors that can be drawn
 
 def draw_start_room(room):
-    floor = pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0000.png").convert()
-    basic_wall = pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0014.png").convert()
+    floor = pygame.transform.scale(pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0000.png").convert(), (28, 28))
+    basic_wall = pygame.transform.scale(pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0014.png").convert(), (28, 28))
 
     floor.set_colorkey((0, 0, 0))
     basic_wall.set_colorkey((0, 0, 0))

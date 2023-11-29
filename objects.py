@@ -11,7 +11,7 @@ class Barrier(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
 
-class Hole(pygame.sprite.Sprite):
+class Floor_Gash(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height):
         super().__init__()
         self.image = pygame.Surface((width, height))
@@ -19,23 +19,47 @@ class Hole(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
 
-class Door(pygame.sprite.Sprite):
+class DoorT(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height):
         super().__init__()
         self.image = pygame.Surface((width, height))
-        self.image.fill((255, 0, 0))
+        self.image.fill(Hitbox_color)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+class DoorL(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(Hitbox_color)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+class DoorR(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(Hitbox_color)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+class DoorB(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(Hitbox_color)
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
 
 
 
-door_top = Door(SCREEN_WIDTH/2 - TILE_SIZE, JAIL_Y_START-TILE_SIZE, TILE_SIZE * 2, TILE_SIZE)
-door_left = Door(JAIL_X_START - TILE_SIZE, SCREEN_HEIGHT/2 - TILE_SIZE, TILE_SIZE, TILE_SIZE * 2)
-door_right = Door(JAIL_X_END, SCREEN_HEIGHT/2 - TILE_SIZE, TILE_SIZE, TILE_SIZE * 2)
-door_bot = Door(SCREEN_WIDTH/2 - TILE_SIZE, JAIL_Y_END, TILE_SIZE * 2, TILE_SIZE)
+door_top = DoorT(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START - TILE_SIZE + 1, TILE_SIZE, TILE_SIZE)
+door_left = DoorL(JAIL_X_START - TILE_SIZE + 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
+door_right = DoorR(JAIL_X_END - 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
+door_bot = DoorB(JAIL_X_START + TILE_SIZE*6, JAIL_Y_END - 1, TILE_SIZE, TILE_SIZE)
 
 barriers = pygame.sprite.Group()
-holes = pygame.sprite.Group()
+floor_gashes = pygame.sprite.Group()
 doors = pygame.sprite.Group()
 
-doors.add(door_top, door_left, door_right, door_bot)
+#doors.add()
