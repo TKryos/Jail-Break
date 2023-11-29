@@ -18,6 +18,7 @@ draw_background(background)
 draw_F1_start_room(background)
 draw_open_doors(background)
 
+#make the player outside of all the loops so that the stats are working proper
 player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
 
 #clock object
@@ -28,4 +29,3 @@ Play = tiles_etc.title_font.render("Jail-Break!", True, (150, 150, 150))
 Exit = tiles_etc.title_font.render("Exit Game", True, (150, 150, 150))
 background.blit(Play, (50, SCREEN_HEIGHT//2 - Play.get_height()//2))
 background.blit(Exit, (SCREEN_WIDTH - int(Exit.get_width()) - 50, SCREEN_HEIGHT//2 - Play.get_height()//2))
-

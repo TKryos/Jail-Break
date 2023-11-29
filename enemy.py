@@ -172,7 +172,7 @@ class Arrow(pygame.sprite.Sprite):
         self.rect.x += velocity_x
         self.rect.y += velocity_y
 
-        # TODO: kill the knives when they hit the side of the jail
+        # TODO: kill the knives when they hit a barrier
         if (self.rect.right > JAIL_X_END or self.rect.left < JAIL_X_START
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START):
             self.kill()
@@ -253,4 +253,4 @@ sentries = pygame.sprite.Group()
 arrows = pygame.sprite.Group()
 broken_prisoners = pygame.sprite.Group()
 
-enemies = [guards, patrols, sentries, arrows, broken_prisoners]
+enemies = [guards, patrols, sentries, broken_prisoners]

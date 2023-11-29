@@ -17,6 +17,7 @@ background = screen.copy()
 
 #overall background
 draw_background(background)
+draw_F1_start_room(background)
 draw_open_doors(background)
 
 
@@ -47,15 +48,17 @@ while running and player.hp > 0:
         if event.type == pygame.QUIT:
             running = False
 
+
+####This is all code that is going into every floor/room
+
 ####This is for throwing knives
     if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-        knife = Knife(player.rect.x + 14, player.rect.y + 14, *event.pos)
+        knife = Knife(player.rect.centerx, player.rect.centery, *event.pos)
 
     ####code to limit how often you can throw knives
         current_time = pygame.time.get_ticks()
         if current_time - LAST_THROW_TIME >= player.atk_spd:
             knives.add(knife)
-            #knives.draw(screen)
             LAST_THROW_TIME = current_time
 ####code to randomly decide when a sentry fires an arrow
     for sentry in sentries:
@@ -101,9 +104,17 @@ while running and player.hp > 0:
             print(player.hp)
             LAST_DMG_TIME = current_time
 
-####check for enemy collision with
-#    if pygame.sprite.spritecollide(player, doors, True):
-#        print('door here')
+####Code that checks if enemies collide with knives and deals damage to them
+    for group in enemies:
+        for enemy in group:
+            if pygame.sprite.spritecollide(enemy, knives, True):
+                enemy.hp -= player.atk
+                print(enemy.hp)
+            ####if enemy hp drops to or below 0, it kills the sprite
+                if enemy.hp <= 0:
+                    enemy.kill()
+####This is all code that is going into every floor/room
+
     #draw background
     screen.blit(background, (0,0))
 
@@ -124,7 +135,7 @@ while running and player.hp > 0:
 #    guards.draw(screen)
 #    patrols.draw(screen)
 #    sentries.draw(screen)
-#    arrows.draw(screen)
+    arrows.draw(screen)
 #    broken_prisoners.draw(screen)
     knives.draw(screen)
 
