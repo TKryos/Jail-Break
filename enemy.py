@@ -1,11 +1,12 @@
 import pygame
 import random
 from game_parameters import *
-from objects import *
+from objects import barriers, floor_gashes
 import math
 
+
 class Guard(pygame.sprite.Sprite):
-    def __init__(self,x,y,target, spd = GUARD_SPD, atk = GUARD_ATK, hp = GUARD_HP):
+    def __init__(self, x, y, target, spd=GUARD_SPD, atk=GUARD_ATK, hp=GUARD_HP):
         super().__init__()
         self.image = pygame.transform.scale(
             pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0096.png").convert(),
@@ -21,9 +22,10 @@ class Guard(pygame.sprite.Sprite):
         self.x_speed = 0
         self.y_speed = 0
 
-    def draw(self,surface):
-        surface.blit(self.image,self.rect)
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
 
+    # Got this code from will
     def update(self, barrier, floor_gash):
         if self.rect.x != self.target.rect.x or self.rect.y != self.target.rect.y:
             try:
@@ -32,7 +34,7 @@ class Guard(pygame.sprite.Sprite):
             except ZeroDivisionError:
                 try:
                     self.rect.y += (self.target.rect.y - self.rect.y)/abs(self.target.rect.y - self.rect.y) * GUARD_SPD
-                except:
+                except ZeroDivisionError:
                     pass
 
         #check for collision with barriers
@@ -185,7 +187,7 @@ class Broken_Prisoner(pygame.sprite.Sprite):
     def __init__(self, x, y, spd = PAT_SPD, atk = PAT_ATK, hp = PAT_HP):
         super().__init__()
         self.image = pygame.transform.scale(
-            pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0088png").convert(),
+            pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0088.png").convert(),
             (28, 28))
         self.rect = self.image.get_rect()
         self.x = x
@@ -219,7 +221,7 @@ class Broken_Prisoner(pygame.sprite.Sprite):
         elif direction == 'right':
             self.rect.centerx += self.spd
             if self.rect.right > JAIL_X_END:
-                self.rect.left = JAIL_X_END
+                self.rect.right = JAIL_X_END
 
         collisions = pygame.sprite.spritecollide(self, barriers, False)
         for barrier in collisions:

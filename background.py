@@ -1,8 +1,9 @@
-import pygame
 from game_parameters import *
-from tiles_etc import *
+from tiles_etc import floor, basic_wall
 
-#only the overall background
+# only the overall background
+
+
 def draw_background(surface):
     surface.fill((84, 84, 84))
 

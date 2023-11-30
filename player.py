@@ -1,6 +1,8 @@
 import pygame
 from game_parameters import *
 import math
+
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
@@ -10,15 +12,16 @@ class Player(pygame.sprite.Sprite):
         self.reverse_image = pygame.transform.flip(self.forward_image, True, False)
         self.image = self.forward_image
         self.rect = self.image.get_rect()
-        self.x = x                  #defines x pos
-        self.y = y                  #defines y pos
-        self.rect.center = (x,y)
-        self.x_spd = 0              #defines movement in the x
-        self.y_spd = 0              #defines movement in the y
-        self.atk = BASE_ATK         #defines attack power
-        self.atk_spd = BASE_ATK_SPD #defines attack speed
-        self.spd = BASE_SPD         #defines movement speed
-        self.hp = BASE_HP           #defines health pool
+        self.x = x                  # defines x pos
+        self.y = y                  # defines y pos
+        self.rect.center = (x, y)
+        self.x_spd = 0                  # defines movement in the x
+        self.y_spd = 0                  # defines movement in the y
+        self.atk = BASE_ATK             # defines attack power
+        self.atk_spd = BASE_ATK_SPD     # defines attack speed
+        self.rng = BASE_ATK_RNG         # defines how far knives are thrown
+        self.spd = BASE_SPD             # defines movement speed
+        self.hp = BASE_HP               # defines health pool
 
     def update(self, barriers, floor_gashes):
         KEYS = pygame.key.get_pressed()
@@ -57,11 +60,15 @@ class Player(pygame.sprite.Sprite):
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
+    # TODO: all of the stat boosts
+
+    def hp_up(self, hp_boost):
+        self.hp += hp_boost
 
 
 class Knife(pygame.sprite.Sprite):
-    #this code I got the base from Will and made some adjustments for my game
-    def __init__(self, start_x, start_y, target_x, target_y):
+    # this code I got the base from Will and made some adjustments for my game
+    def __init__(self, start_x, start_y, target_x, target_y, rng=BASE_ATK_RNG):
         super().__init__()
         self.image = pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0103.png").convert()
         self.image.set_colorkey((0, 0, 0))
@@ -69,6 +76,7 @@ class Knife(pygame.sprite.Sprite):
         self.rect.center = (start_x, start_y)
         self.target_x = target_x
         self.target_y = target_y
+        self.rng = rng
         self.speed = BASE_KNIFE_SPD
         self.start_x = start_x
         self.start_y = start_y
@@ -85,15 +93,15 @@ class Knife(pygame.sprite.Sprite):
         self.rect.x += velocity_x
         self.rect.y += velocity_y
 
-        #TODO: kill the knives when they hit a barrier
+        # TODO: kill the knives when they hit a barrier
         if (self.rect.right > JAIL_X_END or self.rect.left < JAIL_X_START
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START
                 or abs(self.rect.x - self.start_x) > TILE_SIZE*BASE_ATK_RNG or
-                abs(self.rect.y - self.start_y) > TILE_SIZE*BASE_ATK_RNG):
+                abs(self.rect.y - self.start_y) > TILE_SIZE*self.rng):
             self.kill()
-
 
     def draw(self, surface):
         surface.blit(self.image, self.rect.center)
+
 
 knives = pygame.sprite.Group()
