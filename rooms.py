@@ -2,14 +2,14 @@ import pygame
 from game_parameters import *
 from objects import (top_doors, bot_doors, left_doors, right_doors, door_top, door_left, door_right, door_bot,
                      barriers, Barrier, floor_gashes, FloorGash)
-from tiles_etc import tutorial_font, door_open, door_closed, basic_wall, floor_gash
+from tiles_etc import (tutorial_font,basic_wall, floor_gash,
+                       door_open, door_closed, boss_door_indicators, item_door_indicators)
 from enemy import (patrols, Patrol, sentries, Sentry,
                    guards, Guard, broken_prisoners, Broken_Prisoner)
 
 # the different possible rooms that can be drawn
 
 # starting floor for each floor/level
-
 
 def draw_f1_start_room(room):
     """basic room with simple instruction on how to play"""
@@ -25,32 +25,8 @@ def draw_start_room(room):
     """room that starts each floor"""
     pass
 
-# TODO: make the possible instances for the door combinations(maybe)
-def draw_closed_doors(room):
-    # doors.add(door_top, door_left, door_right, door_bot)
-    room.blit(door_closed.convert(),
-              (JAIL_X_START + TILE_SIZE * 6, JAIL_Y_START - TILE_SIZE))
-    room.blit(pygame.transform.rotate(door_closed.convert(), 180),
-              (JAIL_X_START + TILE_SIZE * 6, JAIL_Y_END))
-    room.blit(pygame.transform.rotate(door_closed.convert(), 90),
-              (JAIL_X_START - TILE_SIZE, JAIL_Y_START + TILE_SIZE * 3))
-    room.blit(pygame.transform.rotate(door_closed.convert(), 270),
-              (JAIL_X_END, JAIL_Y_START + TILE_SIZE * 3))
+# TODO: make the possible instances for the door combinations(maybe) or make separate for top,left,right,down
 
-
-def draw_open_doors(room):
-    top_doors.add(door_top)
-    bot_doors.add(door_bot)
-    left_doors.add(door_left)
-    right_doors.add(door_right)
-    room.blit(door_open.convert(),
-              (JAIL_X_START + TILE_SIZE * 6, JAIL_Y_START - TILE_SIZE))
-    room.blit(pygame.transform.rotate(door_open.convert(), 180),
-              (JAIL_X_START + TILE_SIZE * 6, JAIL_Y_END))
-    room.blit(pygame.transform.rotate(door_open.convert(), 90),
-              (JAIL_X_START - TILE_SIZE, JAIL_Y_START + TILE_SIZE * 3))
-    room.blit(pygame.transform.rotate(door_open.convert(), 270),
-              (JAIL_X_END, JAIL_Y_START + TILE_SIZE * 3))
 
 # TODO: make the possible enemies for each room
 
@@ -194,7 +170,30 @@ def draw_room5(room):
     room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3))
 
 
-# def draw_room6(room):
+def draw_room6(room):
+    floor_gash.set_colorkey((255, 255, 255))
+
+    # Create the specific obstacles
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE * 1, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 9, JAIL_Y_START + TILE_SIZE * 1, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 9, JAIL_Y_START + TILE_SIZE))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE * 5, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE * 5))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 9, JAIL_Y_START + TILE_SIZE * 5, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 9, JAIL_Y_START + TILE_SIZE * 5))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 1, JAIL_Y_START + TILE_SIZE * 3, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE * 3))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 6, JAIL_Y_START + TILE_SIZE * 3, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 6, JAIL_Y_START + TILE_SIZE * 3))
+
+    floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3, TILE_SIZE, TILE_SIZE))
+    room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3))
 
 # def draw_boss_room1(room):
 
@@ -204,7 +203,7 @@ def draw_room5(room):
 
 
 def room_choice(background, room, enemy, player):
-    """randomise room choice"""
+    """randomize room choice"""
     if room == 0:
         draw_room0(background)
 
@@ -263,3 +262,13 @@ def room_choice(background, room, enemy, player):
 #        elif enemy == 2:
 #
 #        elif enemy == 3:
+
+#   elif room == 6:
+#       draw_room6(background)
+#       if enemy == 0:
+#
+#       elif enemy == 1:
+#
+#       elif enemy == 2:
+#
+#       elif enemy == 3:

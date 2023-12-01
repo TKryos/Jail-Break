@@ -69,3 +69,17 @@ top_doors = pygame.sprite.Group()
 bot_doors = pygame.sprite.Group()
 left_doors = pygame.sprite.Group()
 right_doors = pygame.sprite.Group()
+
+def clear_objects():
+    for barrier in barriers:
+        barriers.remove(barrier)
+    for floor_gash in floor_gashes:
+        floor_gashes.remove(floor_gash)
+    for door in top_doors:
+        top_doors.remove(door)
+    for door in bot_doors:
+        bot_doors.remove(door)
+    for door in left_doors:
+        left_doors.remove(door)
+    for door in right_doors:
+        right_doors.remove(door)

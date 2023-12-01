@@ -21,3 +21,9 @@ door_open = pygame.transform.scale(
 floor_gash = pygame.transform.scale(
     pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0062.png"),
     (32, 32))
+boss_door_indicators = pygame.transform.scale(
+    pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0019.png"),
+    (32, 32))
+item_door_indicators = pygame.transform.scale(
+    pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0029.png"),
+    (32, 32))

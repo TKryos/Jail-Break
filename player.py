@@ -93,7 +93,6 @@ class Knife(pygame.sprite.Sprite):
         self.rect.x += velocity_x
         self.rect.y += velocity_y
 
-        # TODO: kill the knives when they hit a barrier
         if (self.rect.right > JAIL_X_END or self.rect.left < JAIL_X_START
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START
                 or abs(self.rect.x - self.start_x) > TILE_SIZE*BASE_ATK_RNG or

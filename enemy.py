@@ -174,7 +174,6 @@ class Arrow(pygame.sprite.Sprite):
         self.rect.x += velocity_x
         self.rect.y += velocity_y
 
-        # TODO: kill the knives when they hit a barrier
         if (self.rect.right > JAIL_X_END or self.rect.left < JAIL_X_START
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START):
             self.kill()
@@ -183,7 +182,6 @@ class Arrow(pygame.sprite.Sprite):
         surface.blit(self.image, self.rect)
 
 class Broken_Prisoner(pygame.sprite.Sprite):
-    #TODO: make it interact with barriers
     def __init__(self, x, y, spd = PAT_SPD, atk = PAT_ATK, hp = PAT_HP):
         super().__init__()
         self.image = pygame.transform.scale(

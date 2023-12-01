@@ -3,9 +3,14 @@ import random
 import math
 import sys
 from game_parameters import *
-from rooms import (draw_f1_start_room, draw_open_doors, draw_closed_doors,
-                   draw_room0, draw_room1, draw_room2, draw_room3, draw_room4, draw_room5, room_choice,
-                   r1_e1, r1_e2, r1_e3, r1_e4)
+from rooms import (draw_f1_start_room, draw_room0, draw_room1, draw_room2, draw_room3,
+                   draw_room4, draw_room5, draw_room6, room_choice, r1_e1, r1_e2, r1_e3, r1_e4)
+from door_layouts import (draw_closed_doors, draw_top_closed_door, draw_bot_closed_door, draw_left_closed_door, draw_right_closed_door,
+                          draw_open_doors, draw_top_open_door, draw_bot_open_door, draw_left_open_door, draw_right_open_door,
+                          draw_closed_boss_door_top, draw_closed_boss_door_bot, draw_closed_boss_door_left, draw_closed_boss_door_right,
+                          draw_open_boss_door_top, draw_open_boss_door_bot, draw_open_boss_door_left, draw_open_boss_door_right,
+                          draw_closed_item_door_top, draw_closed_item_door_bot, draw_closed_item_door_left, draw_closed_item_door_right,
+                          draw_open_item_door_top, draw_open_item_door_bot, draw_open_item_door_left, draw_open_item_door_right)
 from background import draw_background
 from player import Player, Knife, knives
 from enemy import (Guard, Sentry, Patrol, Broken_Prisoner,
@@ -23,8 +28,9 @@ background = screen.copy()
 #overall background
 draw_background(background)
 
-#draw_room0(background)
-#draw_open_doors(background)
+draw_room6(background)
+draw_closed_boss_door_bot(background)
+draw_closed_boss_door_right(background)
 #room_choice(background)
 
 #create the player
@@ -34,7 +40,7 @@ hearts = pygame.image.load("assets/tiles/heart.png").convert()
 hearts.set_colorkey((255,255,255))
 
 #create the enemies
-r1_e4(player)
+#r1_e3()
 #patrols.add(Patrol(JAIL_X_START + TILE_SIZE * 2, JAIL_Y_START + TILE_SIZE * 2))
 #guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player))
 #sentries.add(Sentry(JAIL_X_START + 16, JAIL_Y_START + 16))
@@ -108,6 +114,13 @@ while running and player.hp > 0:
             player.hp -= ARROW_ATK
             LAST_DMG_TIME = current_time
 
+    # Code that checks if projectiles collide with barriers and kills them
+    for barrier in barriers:
+        pygame.sprite.spritecollide(barrier, knives, True)
+
+    for barrier in barriers:
+        pygame.sprite.spritecollide(barrier, arrows, True)
+
 ####Code that checks if enemies collide with knives and deals damage to them
     for group in enemies:
         for enemy in group:
@@ -116,14 +129,11 @@ while running and player.hp > 0:
             ####if enemy hp drops to or below 0, it kills the sprite
                 if enemy.hp <= 0:
                     enemy.kill()
+
+
     LIVES = player.hp
 ####This is all code that is going into every floor/room
 
-    if len(enemies) > 0:
-        draw_closed_doors(background)
-    else:
-        draw_open_doors(background)
-        room_state = 1
 
 
     #draw background
