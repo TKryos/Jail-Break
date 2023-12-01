@@ -19,8 +19,8 @@ class Guard(pygame.sprite.Sprite):
         self.atk = atk
         self.target = target
         self.rect.center = (x,y)
-        self.x_speed = 0
-        self.y_speed = 0
+        self.x_move = 0     # Only used to see if it is moving or not
+        self.y_move = 0     # Only used to see if it is moving or not
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -31,23 +31,42 @@ class Guard(pygame.sprite.Sprite):
             try:
                 self.rect.x += (self.target.rect.x - self.rect.x)/abs(self.target.rect.x - self.rect.x) * GUARD_SPD
                 self.rect.y += (self.target.rect.y - self.rect.y)/abs(self.target.rect.y - self.rect.y) * GUARD_SPD
+                self.x_move = 1
+                self.y_move = 1
             except ZeroDivisionError:
                 try:
                     self.rect.y += (self.target.rect.y - self.rect.y)/abs(self.target.rect.y - self.rect.y) * GUARD_SPD
+                    self.x_move = 0
+                    self.y_move = 1
                 except ZeroDivisionError:
+                    self.x_move = 0
+                    self.y_move = 0
                     pass
 
         #check for collision with barriers
         collisions = pygame.sprite.spritecollide(self, barriers, False)
-        for barrier in collisions:
-            if self.rect.left < barrier.rect.right:
-                self.rect.left = barrier.rect.right
-            if self.rect.right > barrier.rect.left:
-                self.rect.right = barrier.rect.left
-            if self.rect.top < barrier.rect.bottom:
-                self.rect.top = barrier.rect.bottom
-            if self.rect.bottom > barrier.rect.top:
-                self.rect.bottom = barrier.rect.top
+        if sum([self.x_move, self.y_move]) == 1:
+            for barrier in collisions:
+                if self.rect.left < barrier.rect.right:
+                    self.rect.left = barrier.rect.right
+                if self.rect.right > barrier.rect.left:
+                    self.rect.right = barrier.rect.left
+                if self.rect.top < barrier.rect.bottom:
+                    self.rect.top = barrier.rect.bottom
+                if self.rect.bottom > barrier.rect.top:
+                    self.rect.bottom = barrier.rect.top
+
+        elif sum([self.x_move, self.y_move]) == 2:
+            for barrier in collisions:
+                if self.rect.left < barrier.rect.right:
+                    self.rect.left = barrier.rect.right
+                elif self.rect.right > barrier.rect.left:
+                    self.rect.right = barrier.rect.left
+                elif self.rect.top < barrier.rect.bottom:
+                    self.rect.top = barrier.rect.bottom
+                elif self.rect.bottom > barrier.rect.top:
+                    self.rect.bottom = barrier.rect.top
+
 
         # Check for collision with floor_gashes
         collisions = pygame.sprite.spritecollide(self, floor_gashes, False)

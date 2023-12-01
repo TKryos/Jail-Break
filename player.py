@@ -27,38 +27,69 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, barriers, floor_gashes):
         KEYS = pygame.key.get_pressed()
-        if KEYS[pygame.K_a] and self.rect.left > JAIL_X_START:
+        keyw, keya, keys, keyd = KEYS[pygame.K_w], KEYS[pygame.K_a], KEYS[pygame.K_s], KEYS[pygame.K_d]
+        if keya and self.rect.left > JAIL_X_START:
             self.rect.x += -self.spd
-        if KEYS[pygame.K_d] and self.rect.right < JAIL_X_END:
+        if keyd and self.rect.right < JAIL_X_END:
             self.rect.x += self.spd
-        if KEYS[pygame.K_w] and self.rect.top > JAIL_Y_START:
+        if keyw and self.rect.top > JAIL_Y_START:
             self.rect.y += -self.spd
-        if KEYS[pygame.K_s] and self.rect.bottom < JAIL_Y_END:
+        if keys and self.rect.bottom < JAIL_Y_END:
             self.rect.y += self.spd
 
         # Check for collisions with barriers
         collisions = pygame.sprite.spritecollide(self, barriers, False)
-        for barrier in collisions:
-            if KEYS[pygame.K_a] and self.rect.left < barrier.rect.right:
-                self.rect.left = barrier.rect.right
-            if KEYS[pygame.K_d] and self.rect.right > barrier.rect.left:
-                self.rect.right = barrier.rect.left
-            if KEYS[pygame.K_w] and self.rect.top < barrier.rect.bottom:
-                self.rect.top = barrier.rect.bottom
-            if KEYS[pygame.K_s] and self.rect.bottom > barrier.rect.top:
-                self.rect.bottom = barrier.rect.top
+        if sum([keyw, keya, keys, keyd]) == 1:
+            for barrier in collisions:
+                if keya and self.rect.left < barrier.rect.right:
+                    self.rect.left = barrier.rect.right
+                if keyd and self.rect.right > barrier.rect.left:
+                    self.rect.right = barrier.rect.left
+                if keyw and self.rect.top < barrier.rect.bottom:
+                    self.rect.top = barrier.rect.bottom
+                if keys and self.rect.bottom > barrier.rect.top:
+                    self.rect.bottom = barrier.rect.top
+        if sum([keyw, keya, keys, keyd]) >= 2:
+            for barrier in collisions:
+                if KEYS[pygame.K_a] and self.rect.left < barrier.rect.right and (KEYS[pygame.K_w] or KEYS[pygame.K_s]):
+                    self.rect.left = barrier.rect.right
+                elif KEYS[pygame.K_d] and self.rect.right > barrier.rect.left and (KEYS[pygame.K_w] or KEYS[pygame.K_s]):
+                    self.rect.right = barrier.rect.left
+
+                # this is where the problem starts
+                elif KEYS[pygame.K_w] and self.rect.top < barrier.rect.bottom and (KEYS[pygame.K_a] or KEYS[pygame.K_d]):
+                    self.rect.top = barrier.rect.bottom
+                elif KEYS[pygame.K_s] and self.rect.bottom > barrier.rect.top and (KEYS[pygame.K_a] or KEYS[pygame.K_d]):
+                    self.rect.bottom = barrier.rect.top
 
         # Check for collisions with floor_gashes
         collisions = pygame.sprite.spritecollide(self, floor_gashes, False)
-        for floor_gash in collisions:
-            if KEYS[pygame.K_a] and self.rect.left < floor_gash.rect.right:
-                self.rect.left = floor_gash.rect.right
-            if KEYS[pygame.K_d] and self.rect.right > floor_gash.rect.left:
-                self.rect.right = floor_gash.rect.left
-            if KEYS[pygame.K_w] and self.rect.top < floor_gash.rect.bottom:
-                self.rect.top = floor_gash.rect.bottom
-            if KEYS[pygame.K_s] and self.rect.bottom > floor_gash.rect.top:
-                self.rect.bottom = floor_gash.rect.top
+        if sum([keyw, keya, keys, keyd]) == 1:
+            for floor_gash in collisions:
+                if KEYS[pygame.K_a] and self.rect.left < floor_gash.rect.right:
+                    self.rect.left = floor_gash.rect.right
+                if KEYS[pygame.K_d] and self.rect.right > floor_gash.rect.left:
+                    self.rect.right = floor_gash.rect.left
+                if KEYS[pygame.K_w] and self.rect.top < floor_gash.rect.bottom:
+                    self.rect.top = floor_gash.rect.bottom
+                if KEYS[pygame.K_s] and self.rect.bottom > floor_gash.rect.top:
+                    self.rect.bottom = floor_gash.rect.top
+
+        if sum([keyw, keya, keys, keyd]) >= 2:
+            for floor_gash in collisions:
+                if KEYS[pygame.K_a] and self.rect.left < floor_gash.rect.right and (KEYS[pygame.K_w] or KEYS[pygame.K_s]):
+                    self.rect.left = floor_gash.rect.right
+                elif KEYS[pygame.K_d] and self.rect.right > floor_gash.rect.left and (
+                        KEYS[pygame.K_w] or KEYS[pygame.K_s]):
+                    self.rect.right = floor_gash.rect.left
+
+                # this is where the problem starts
+                elif KEYS[pygame.K_w] and self.rect.top < floor_gash.rect.bottom and (
+                        KEYS[pygame.K_a] or KEYS[pygame.K_d]):
+                    self.rect.top = floor_gash.rect.bottom
+                elif (KEYS[pygame.K_s] and self.rect.bottom > floor_gash.rect.top and (
+                        KEYS[pygame.K_a] or KEYS[pygame.K_d])):
+                    self.rect.bottom = floor_gash.rect.top
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
