@@ -22,7 +22,7 @@ import random
 
 # TODO: fix the double interact glitch when returning to a room
 
-def room_uu1(player, room_num, room_states):
+def room_uu1(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -34,7 +34,7 @@ def room_uu1(player, room_num, room_states):
     draw_background(floor1)
     draw_top_open_door(floor1)
     draw_bot_open_door(floor1)
-    room_choice(floor1, room_num, 0, player)
+    room_choice(floor1, room_data['room uu']['state'], 0, player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -188,7 +188,7 @@ def room_uu1(player, room_num, room_states):
         clock.tick(30)
 
 
-def room_uu0(player, room_states, room_num, enemy_num):
+def room_uu0(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -200,7 +200,7 @@ def room_uu0(player, room_states, room_num, enemy_num):
     draw_background(floor1)
     draw_top_closed_door(floor1)
     draw_bot_closed_door(floor1)
-    room_choice(floor1, room_num, enemy_num, player)
+    room_choice(floor1, room_data['room uu']['layout'], room_data['room uu']['enemy spawn'], player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -315,7 +315,7 @@ def room_uu0(player, room_states, room_num, enemy_num):
         current_time = pygame.time.get_ticks()
         if current_time - TIME_SINCE_DOOR > 500:
             if len(guards) == 0 and len(patrols) == 0 and len(sentries) == 0 and len(arrows) == 0 and len(broken_prisoners) == 0:
-                room_states[4] = 1
+                room_data['room uu']['state'] = 1
                 room = False
 
         # Draw background
@@ -349,10 +349,10 @@ def room_uu0(player, room_states, room_num, enemy_num):
         # Limit the fps
         clock.tick(30)
     # Outside of while loop call room_state1
-    room_uu1(player, room_num, room_states)
+    room_uu1(player, room_data)
 
 
-def room_u1(player, room_num, room_states):
+def room_u1(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -364,7 +364,7 @@ def room_u1(player, room_num, room_states):
     draw_background(floor1)
     draw_top_open_door(floor1)
     draw_bot_open_door(floor1)
-    room_choice(floor1, room_num, 0, player)
+    room_choice(floor1, room_data['room u']['layout'], 0, player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -473,14 +473,14 @@ def room_u1(player, room_num, room_states):
         # Code to tell what door you are entering
         if pygame.sprite.spritecollide(player, top_doors, False):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
-            if room_states[5] == 0:
+            if room_data['room uu']['state'] == 0:
                 print('u to uu')
-                room_uu0(player, room_states, room_uu, enemy_uu)
+                room_uu0(player, room_data)
                 clear_objects()
 
             # For if you come back into the room
-            elif room_states[5] == 1:
-                room_uu1(player, room_uu, room_states)
+            elif room_data['room uu']['state'] == 1:
+                room_uu1(player, room_data)
         if pygame.sprite.spritecollide(player, bot_doors, False):
             print('u to c')
             clear_objects()
@@ -521,7 +521,7 @@ def room_u1(player, room_num, room_states):
         clock.tick(30)
 
 
-def room_u0(player, room_states, room_num, enemy_num):
+def room_u0(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -533,7 +533,7 @@ def room_u0(player, room_states, room_num, enemy_num):
     draw_background(floor1)
     draw_top_closed_door(floor1)
     draw_bot_closed_door(floor1)
-    room_choice(floor1, room_num, enemy_num, player)
+    room_choice(floor1, room_data['room u']['layout'], room_data['room u']['enemy spawn'], player)
     clock = pygame.time.Clock()
 
 
@@ -649,7 +649,7 @@ def room_u0(player, room_states, room_num, enemy_num):
         current_time = pygame.time.get_ticks()
         if current_time - TIME_SINCE_DOOR > 500:
             if len(guards) == 0 and len(patrols) == 0 and len(sentries) == 0 and len(arrows) == 0 and len(broken_prisoners) == 0:
-                room_states[4] = 1
+                room_data['room u']['state'] = 1
                 room = False
 
         # Draw background
@@ -683,10 +683,10 @@ def room_u0(player, room_states, room_num, enemy_num):
         # Limit the fps
         clock.tick(30)
     # Outside of while loop call room_state1
-    room_u1(player, room_num, room_states)
+    room_u1(player, room_data)
 
 
-def room_d1(player, room_num, room_states):
+def room_d1(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -697,7 +697,7 @@ def room_d1(player, room_num, room_states):
 
     draw_background(floor1)
     draw_top_open_door(floor1)
-    room_choice(floor1, room_num, 0, player)
+    room_choice(floor1, room_data['room d']['layout'], 0, player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -844,7 +844,7 @@ def room_d1(player, room_num, room_states):
         clock.tick(30)
 
 
-def room_d0(player, room_num, room_states):
+def room_d0(player, room_data):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -855,7 +855,7 @@ def room_d0(player, room_num, room_states):
 
     draw_background(floor1)
     draw_top_open_door(floor1)
-    room_choice(floor1, room_num, 0, player)
+    room_choice(floor1, room_data['room d']['layout'], 0, player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -966,7 +966,7 @@ def room_d0(player, room_num, room_states):
         if current_time - TIME_SINCE_DOOR > 500:
             if (len(max_hp_boosts) == 0 and len(atk_boosts) == 0 and len(rng_boosts) == 0 and
                     len(spd_boosts) == 0 and len(atk_spd_boosts) == 0 and len(knife_spd_boosts) == 0):
-                room_states[1] = 1
+                room_data['room d']['state'] = 1
                 room = False
 
         # Code to tell what door you are entering
@@ -1008,4 +1008,4 @@ def room_d0(player, room_num, room_states):
 
         # Limit the fps
         clock.tick(30)
-    room_d1(player, room_num, room_states)
+    room_d1(player, room_data)

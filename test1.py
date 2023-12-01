@@ -1,3 +1,3 @@
-def func2(list1):
-    list1[0] = 2
+def func2(dict1):
+    dict1['room']['layout'] = 2
 

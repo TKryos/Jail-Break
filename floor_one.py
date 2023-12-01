@@ -32,32 +32,12 @@ def main(player):
     draw_open_item_door_bot(floor1)
 
     clock = pygame.time.Clock()
-    # set room states
-    #              c  b  u uu uuu
-    room_states = [1, 0, 0, 0, 0 ]
-
-
-
-    # set the room and enemy layout
-
-    room_l, enemy_l = random.randint(0, 7), random.randint(0, 4)
-
-
-    room_r, enemy_r = random.randint(0, 7), random.randint(0, 4)
-
-
-    room_u, enemy_u = 1, 0 #random.randint(0, 7), random.randint(0, 4)
-
-
-    room_d, enemy_d = random.randint(0, 7), random.randint(0, 4)
-
-
-
-
-
-    room_uuu = 0
-
-
+    # set room states, layout, and enemies
+    room_data = {'room c': {'state': 0, 'layout': 0, 'enemy spawn': 0},
+                 'room u': {'state': 0, 'layout': random.randint(0, 7), 'enemy spawn': random.randint(0, 4)},
+                 'room d': {'state': 0, 'layout': 0, 'enemy spawn': 0},
+                 'room uu': {'state': 0, 'layout': random.randint(0, 7), 'enemy spawn': random.randint(0, 4)},
+                 'room uuu': {'state': 0, 'layout': 0, 'enemy spawn': 0}}
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
     hearts.set_colorkey((255, 255, 255))
@@ -165,9 +145,9 @@ def main(player):
         # Code to tell what door you are entering
         if pygame.sprite.spritecollide(player, top_doors, False):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
-            if room_states[2] == 0:
+            if room_data['room u']['state'] == 0:
                 print('c to u')
-                f1_rooms.room_u0(player, room_states, room_u, enemy_u)
+                f1_rooms.room_u0(player, room_data)
 
                 # For if you come back into the room
                 clear_objects()
@@ -175,9 +155,9 @@ def main(player):
                 draw_top_open_door(floor1)
                 draw_open_item_door_bot(floor1)
 
-            if room_states[2] == 1:
+            if room_data['room u']['state'] == 1:
                 print('c to u')
-                f1_rooms.room_u1(player, room_u, room_states)
+                f1_rooms.room_u1(player, room_data)
 
                 # For if you come back into the room
                 clear_objects()
@@ -187,17 +167,17 @@ def main(player):
 
         if pygame.sprite.spritecollide(player, bot_doors, False):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
-            if room_states[1] == 0:
+            if room_data['room d']['state'] == 0:
                 print('long way down')
-                f1_rooms.room_d0(player, room_d, room_states)
+                f1_rooms.room_d0(player, room_data)
 
                 #For if you come back into the room
                 clear_objects()
                 room_choice(floor1, 0, 0, player)
 
-            if room_states[1] == 1:
+            if room_data['room d']['state'] == 1:
                 print('c to d')
-                f1_rooms.room_d1(player, room_d, room_states)
+                f1_rooms.room_d1(player, room_data)
 
                 clear_objects()
                 room_choice(floor1, 0, 0, player)
