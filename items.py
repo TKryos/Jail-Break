@@ -1,16 +1,28 @@
 import pygame
+from tiles_etc import health_pot, maxhpup, atkup, atkrngup, atkspdup, spdup, knifespdup
 
-# TODO: find images and make the interactions for each item
+
+class HealthPot(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+        self.image = health_pot.convert()
+        self.rect = self.image.get_rect()
+        self.x = x
+        self.y = y
+        self.rect.center = (x, y)
+
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
 
 
 class SpdUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = spdup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -19,11 +31,11 @@ class SpdUp(pygame.sprite.Sprite):
 class AtkSpdUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = atkspdup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -32,24 +44,24 @@ class AtkSpdUp(pygame.sprite.Sprite):
 class KnifeSpdUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = knifespdup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
 
-class HpUp(pygame.sprite.Sprite):
+class MaxHpUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = maxhpup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -58,11 +70,11 @@ class HpUp(pygame.sprite.Sprite):
 class AtkUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = atkup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -71,11 +83,22 @@ class AtkUp(pygame.sprite.Sprite):
 class RngUp(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        # self.image =
-        # self.rect = self.image.get_rect()
+        self.image = atkrngup.convert()
+        self.rect = self.image.get_rect()
         self.x = x
         self.y = y
-        # self.rect.center = (x, y)
+        self.rect.center = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
+
+
+hp_pots = pygame.sprite.Group()
+
+spd_boosts = pygame.sprite.Group()
+atk_spd_boosts = pygame.sprite.Group()
+knife_spd_boosts = pygame.sprite.Group()
+max_hp_boosts = pygame.sprite.Group()
+atk_boosts = pygame.sprite.Group()
+rng_boosts = pygame.sprite.Group()
+items = [spd_boosts, atk_spd_boosts, knife_spd_boosts, max_hp_boosts, atk_boosts, rng_boosts]

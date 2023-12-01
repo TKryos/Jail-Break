@@ -3,13 +3,16 @@ import sys
 from game_parameters import *
 from rooms import (draw_f1_start_room, draw_room0, draw_room1, draw_room2, draw_room3,
                    draw_room4, draw_room5, room_choice, r1_e1, r1_e2, r1_e3, r1_e4)
-from door_layouts import draw_open_doors
+from door_layouts import draw_top_open_door, draw_open_item_door_bot
 from player import knives, Knife
 from enemy import (guards, patrols, sentries, arrows, Arrow, broken_prisoners, enemies)
 from objects import (barriers, Barrier, floor_gashes, FloorGash,
                      door_bot, door_top, door_left, door_right,
                      top_doors, left_doors, right_doors, bot_doors, clear_objects)
-import f1_rooms1
+from items import (HealthPot, hp_pots,
+                   SpdUp, spd_boosts, AtkSpdUp, atk_spd_boosts, KnifeSpdUp, knife_spd_boosts,
+                   MaxHpUp, max_hp_boosts, AtkUp, atk_boosts, RngUp, rng_boosts, items)
+import f1_rooms
 from background import draw_background
 import random
 
@@ -24,30 +27,36 @@ def main(player):
     clear_objects()
 
     draw_background(floor1)
-    draw_room0(floor1)
+    draw_f1_start_room(floor1)
+    draw_top_open_door(floor1)
+    draw_open_item_door_bot(floor1)
 
     clock = pygame.time.Clock()
-    # Make the possible rooms and their states
-    room_c_state = 1
-    draw_open_doors(floor1)
+    # set room states
+    #              c  b  u uu uuu
+    room_states = [1, 0, 0, 0, 0 ]
+
+
+
+    # set the room and enemy layout
 
     room_l, enemy_l = random.randint(0, 7), random.randint(0, 4)
-    room_l_state = 0
+
 
     room_r, enemy_r = random.randint(0, 7), random.randint(0, 4)
-    room_r_state = 0
 
-    room_u, enemy_u = 1, 2 #random.randint(0, 7), random.randint(0, 4)
-    room_u_state = [0]
+
+    room_u, enemy_u = 1, 0 #random.randint(0, 7), random.randint(0, 4)
+
 
     room_d, enemy_d = random.randint(0, 7), random.randint(0, 4)
-    room_d_state = 0
 
-    room_uu, enemy_uu = 0, 1 #random.randint(0, 7), random.randint(0, 4)
-    room_uu_state = 0
+
+
+
 
     room_uuu = 0
-    room_uuu_state = 0
+
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
@@ -68,7 +77,7 @@ def main(player):
             # This is for throwing knives
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                knife = Knife(player.rect.centerx, player.rect.centery, *event.pos, player.rng)
+                knife = Knife(player.rect.centerx, player.rect.centery, *event.pos, player.rng, player.knife_spd)
 
                 # Code to limit how often you can throw knives
                 current_time = pygame.time.get_ticks()
@@ -114,6 +123,34 @@ def main(player):
                 player.hp -= ARROW_ATK
                 LAST_DMG_TIME = current_time
 
+        # Code that checks if projectiles collide with barriers and kills them
+        for barrier in barriers:
+            pygame.sprite.spritecollide(barrier, knives, True)
+            pygame.sprite.spritecollide(barrier, arrows, True)
+
+        # Code that checks if hp pots are grabbed
+        if player.maxhp > player.hp:
+            if pygame.sprite.spritecollide(player, hp_pots, True):
+                player.health_potion(1)
+
+        if pygame.sprite.spritecollide(player, spd_boosts, True):
+            player.spd_up(2)
+
+        if pygame.sprite.spritecollide(player, atk_spd_boosts, True):
+            player.atk_spd_up(100)
+
+        if pygame.sprite.spritecollide(player, knife_spd_boosts, True):
+            player.knife_spd_up(1)
+
+        if pygame.sprite.spritecollide(player, max_hp_boosts, True):
+            player.max_hp_up(1)
+
+        if pygame.sprite.spritecollide(player, atk_boosts, True):
+            player.atk_up(5)
+
+        if pygame.sprite.spritecollide(player, rng_boosts, True):
+            player.atk_rng_up(1)
+
         # Code that checks if enemies collide with knives and deals damage to them
         for group in enemies:
             for enemy in group:
@@ -128,29 +165,42 @@ def main(player):
         # Code to tell what door you are entering
         if pygame.sprite.spritecollide(player, top_doors, False):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
-            if room_u_state[0] == 0:
-
-                f1_rooms1.room_u0(player, room_u_state, room_u, enemy_u)
-
-                # For if you come back into the room
-                draw_room0(floor1)
-                draw_open_doors(floor1)
-
-            if room_u_state[0] == 1:
-                f1_rooms1.room_u1(player, room_u)
+            if room_states[2] == 0:
+                print('c to u')
+                f1_rooms.room_u0(player, room_states, room_u, enemy_u)
 
                 # For if you come back into the room
+                clear_objects()
                 draw_room0(floor1)
-                draw_open_doors(floor1)
+                draw_top_open_door(floor1)
+                draw_open_item_door_bot(floor1)
 
-        if pygame.sprite.spritecollide(player, right_doors, False):
-            print('right way')
+            if room_states[2] == 1:
+                print('c to u')
+                f1_rooms.room_u1(player, room_u, room_states)
 
-        if pygame.sprite.spritecollide(player, left_doors, False):
-            print('left here')
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor1)
+                draw_top_open_door(floor1)
+                draw_open_item_door_bot(floor1)
 
         if pygame.sprite.spritecollide(player, bot_doors, False):
-            print('long way down')
+            player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
+            if room_states[1] == 0:
+                print('long way down')
+                f1_rooms.room_d0(player, room_d, room_states)
+
+                #For if you come back into the room
+                clear_objects()
+                room_choice(floor1, 0, 0, player)
+
+            if room_states[1] == 1:
+                print('c to d')
+                f1_rooms.room_d1(player, room_d, room_states)
+
+                clear_objects()
+                room_choice(floor1, 0, 0, player)
 
 
 

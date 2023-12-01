@@ -17,11 +17,13 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (x, y)
         self.x_spd = 0                  # defines movement in the x
         self.y_spd = 0                  # defines movement in the y
-        self.atk = BASE_ATK             # defines attack power
-        self.atk_spd = BASE_ATK_SPD     # defines attack speed
-        self.rng = BASE_ATK_RNG         # defines how far knives are thrown
-        self.spd = BASE_SPD             # defines movement speed
-        self.hp = BASE_HP               # defines health pool
+        self.atk = BASE_ATK             ############# defines attack power
+        self.atk_spd = BASE_ATK_SPD     ############# defines how often knives can be thrown
+        self.knife_spd = BASE_KNIFE_SPD ############# defines how fast knives move
+        self.rng = BASE_ATK_RNG         ############# defines how far knives are thrown
+        self.spd = BASE_SPD             ############# defines movement speed
+        self.hp = BASE_HP               ############# defines health available
+        self.maxhp = BASE_MAX_HP            ############# defines total health pool
 
     def update(self, barriers, floor_gashes):
         KEYS = pygame.key.get_pressed()
@@ -62,13 +64,32 @@ class Player(pygame.sprite.Sprite):
         surface.blit(self.image, self.rect)
     # TODO: all of the stat boosts
 
-    def hp_up(self, hp_boost):
+    def health_potion(self, hp_pot):
+        self.hp += hp_pot
+
+    def max_hp_up(self, hp_boost):
         self.hp += hp_boost
+        self.maxhp += hp_boost
+
+    def atk_up(self, atk_boost):
+        self.atk += atk_boost
+
+    def atk_rng_up(self, atk_rng_boost):
+        self.rng += atk_rng_boost
+
+    def atk_spd_up(self, atk_spd_boost):
+        self.atk_spd -= atk_spd_boost
+
+    def knife_spd_up(self, knife_spd_boost):
+        self.knife_spd += knife_spd_boost
+
+    def spd_up(self, spd_boost):
+        self.spd += spd_boost
 
 
 class Knife(pygame.sprite.Sprite):
     # this code I got the base from Will and made some adjustments for my game
-    def __init__(self, start_x, start_y, target_x, target_y, rng=BASE_ATK_RNG):
+    def __init__(self, start_x, start_y, target_x, target_y, rng, speed):
         super().__init__()
         self.image = pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0103.png").convert()
         self.image.set_colorkey((0, 0, 0))
@@ -77,7 +98,7 @@ class Knife(pygame.sprite.Sprite):
         self.target_x = target_x
         self.target_y = target_y
         self.rng = rng
-        self.speed = BASE_KNIFE_SPD
+        self.speed = speed
         self.start_x = start_x
         self.start_y = start_y
 
@@ -95,8 +116,8 @@ class Knife(pygame.sprite.Sprite):
 
         if (self.rect.right > JAIL_X_END or self.rect.left < JAIL_X_START
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START
-                or abs(self.rect.x - self.start_x) > TILE_SIZE*BASE_ATK_RNG or
-                abs(self.rect.y - self.start_y) > TILE_SIZE*self.rng):
+                or abs(self.rect.x - self.start_x) > TILE_SIZE//2*self.rng or
+                abs(self.rect.y - self.start_y) > TILE_SIZE//2*self.rng):
             self.kill()
 
     def draw(self, surface):

@@ -7,6 +7,7 @@ from door_layouts import draw_open_doors
 from background import draw_background
 from tiles_etc import title_font
 from player import Player
+from objects import clear_objects
 import floor_one
 
 
@@ -56,6 +57,7 @@ while game:
 
                 # Check if the mouse clicked on the playbutton
                 if play_button_rect.collidepoint(mouse_pos):
+                    clear_objects()
                     floor_one.main(theif)
 
 

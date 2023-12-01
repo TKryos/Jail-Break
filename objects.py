@@ -58,6 +58,15 @@ class DoorB(pygame.sprite.Sprite):
         self.rect.topleft = (x, y)
 
 
+class Stairs(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(Hitbox_color)
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+
 door_top = DoorT(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START - TILE_SIZE + 1, TILE_SIZE, TILE_SIZE)
 door_left = DoorL(JAIL_X_START - TILE_SIZE + 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
 door_right = DoorR(JAIL_X_END - 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
@@ -69,6 +78,8 @@ top_doors = pygame.sprite.Group()
 bot_doors = pygame.sprite.Group()
 left_doors = pygame.sprite.Group()
 right_doors = pygame.sprite.Group()
+stairs = pygame.sprite.Group()
+
 
 def clear_objects():
     for barrier in barriers:

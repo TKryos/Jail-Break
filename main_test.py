@@ -16,6 +16,9 @@ from player import Player, Knife, knives
 from enemy import (Guard, Sentry, Patrol, Broken_Prisoner,
                    guards, sentries, patrols, broken_prisoners, Arrow, arrows, enemies)
 from objects import (barriers, Barrier, floor_gashes, FloorGash)
+from items import (HealthPot, hp_pots,
+                   SpdUp, spd_boosts, AtkSpdUp, atk_spd_boosts, KnifeSpdUp, knife_spd_boosts,
+                   MaxHpUp, max_hp_boosts, AtkUp, atk_boosts, RngUp, rng_boosts, items)
 
 
 #initialize pygame
@@ -28,7 +31,7 @@ background = screen.copy()
 #overall background
 draw_background(background)
 
-draw_room6(background)
+draw_room0(background)
 draw_closed_boss_door_bot(background)
 draw_closed_boss_door_right(background)
 #room_choice(background)
@@ -38,6 +41,14 @@ player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
 
 hearts = pygame.image.load("assets/tiles/heart.png").convert()
 hearts.set_colorkey((255,255,255))
+
+hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE*2))
+spd_boosts.add(SpdUp(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*2))
+atk_spd_boosts.add(AtkSpdUp(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*2))
+knife_spd_boosts.add(KnifeSpdUp(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*2))
+max_hp_boosts.add(MaxHpUp(JAIL_X_START + TILE_SIZE*10, JAIL_Y_START + TILE_SIZE*2))
+atk_boosts.add(AtkUp(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE*4))
+rng_boosts.add(RngUp(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*4))
 
 #create the enemies
 #r1_e3()
@@ -68,7 +79,7 @@ while running and player.hp > 0:
 
     ####This is for throwing knives
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            knife = Knife(player.rect.centerx, player.rect.centery, *event.pos, player.rng)
+            knife = Knife(player.rect.centerx, player.rect.centery, *event.pos, player.rng, player.knife_spd)
 
         ####code to limit how often you can throw knives
             current_time = pygame.time.get_ticks()
@@ -117,9 +128,30 @@ while running and player.hp > 0:
     # Code that checks if projectiles collide with barriers and kills them
     for barrier in barriers:
         pygame.sprite.spritecollide(barrier, knives, True)
-
-    for barrier in barriers:
         pygame.sprite.spritecollide(barrier, arrows, True)
+
+    # Code that checks if hp pots are grabbed
+    if player.maxhp > player.hp:
+        if pygame.sprite.spritecollide(player, hp_pots, True):
+            player.health_potion(1)
+
+    if pygame.sprite.spritecollide(player, spd_boosts, True):
+        player.spd_up(2)
+
+    if pygame.sprite.spritecollide(player, atk_spd_boosts, True):
+        player.atk_spd_up(100)
+
+    if pygame.sprite.spritecollide(player, knife_spd_boosts, True):
+        player.knife_spd_up(1)
+
+    if pygame.sprite.spritecollide(player, max_hp_boosts, True):
+        player.max_hp_up(1)
+
+    if pygame.sprite.spritecollide(player, atk_boosts, True):
+        player.atk_up(5)
+
+    if pygame.sprite.spritecollide(player, rng_boosts, True):
+        player.atk_rng_up(1)
 
 ####Code that checks if enemies collide with knives and deals damage to them
     for group in enemies:
@@ -150,15 +182,16 @@ while running and player.hp > 0:
 
 
     #draw game objects
+    hp_pots.draw(screen)
+    for item in items:
+        item.draw(screen)
+
     player.draw(screen)
     for enemy in enemies:
         enemy.draw(screen)
-#    guards.draw(screen)
-#    patrols.draw(screen)
-#    sentries.draw(screen)
     arrows.draw(screen)
-#    broken_prisoners.draw(screen)
     knives.draw(screen)
+
 
     for i in range(player.hp):
         if i <= 9:
