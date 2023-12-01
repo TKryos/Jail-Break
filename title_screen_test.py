@@ -4,7 +4,7 @@ import sys
 from game_parameters import *
 from rooms import (draw_f1_start_room, draw_open_doors)
 from background import draw_background
-from tiles_etc import  title_font
+from tiles_etc import title_font
 from player import Player
 import floor_one
 
@@ -41,9 +41,10 @@ exit_button_rect = pygame.Rect((SCREEN_WIDTH - 305, SCREEN_HEIGHT//2 - 35, 265, 
 
 LAST_THROW_TIME = 0
 LAST_DMG_TIME = 0
+TIME_SINCE_DOOR = 0
 #Main Loop
 game = True
-running = True
+
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

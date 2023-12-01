@@ -22,8 +22,9 @@ background = screen.copy()
 
 #overall background
 draw_background(background)
-draw_room0(background)
-draw_open_doors(background)
+
+#draw_room0(background)
+#draw_open_doors(background)
 #room_choice(background)
 
 #create the player
@@ -56,7 +57,6 @@ while running and player.hp > 0:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
 
 ####This is all code that is going into every floor/room
 
@@ -118,6 +118,13 @@ while running and player.hp > 0:
                     enemy.kill()
     LIVES = player.hp
 ####This is all code that is going into every floor/room
+
+    if len(enemies) > 0:
+        draw_closed_doors(background)
+    else:
+        draw_open_doors(background)
+        room_state = 1
+
 
     #draw background
     screen.blit(background, (0,0))

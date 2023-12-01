@@ -22,15 +22,10 @@ def draw_f1_start_room(room):
 
 
 def draw_start_room(room):
-    """basic room with simple instruction on how to play"""
-    tutorial_1 = tutorial_font.render("Use WASD to move", True, (150, 150, 150))
-    tutorial_2 = tutorial_font.render("Point and click to throw knives", True, (150, 150, 150))
-    tutorial_3 = tutorial_font.render("Defeat guards,get items, ESCAPE", True, (150, 150, 150))
-    room.blit(tutorial_1, (SCREEN_WIDTH // 2 - tutorial_1.get_width() / 2, JAIL_Y_START))
-    room.blit(tutorial_2, (SCREEN_WIDTH // 2 - tutorial_2.get_width() / 2, SCREEN_HEIGHT // 2))
-    room.blit(tutorial_3, (SCREEN_WIDTH // 2 - tutorial_3.get_width() / 2, JAIL_Y_END - tutorial_3.get_height()))
+    """room that starts each floor"""
+    pass
 
-
+# TODO: make the possible instances for the door combinations(maybe)
 def draw_closed_doors(room):
     # doors.add(door_top, door_left, door_right, door_bot)
     room.blit(door_closed.convert(),
@@ -56,6 +51,8 @@ def draw_open_doors(room):
               (JAIL_X_START - TILE_SIZE, JAIL_Y_START + TILE_SIZE * 3))
     room.blit(pygame.transform.rotate(door_open.convert(), 270),
               (JAIL_X_END, JAIL_Y_START + TILE_SIZE * 3))
+
+# TODO: make the possible enemies for each room
 
 
 def draw_room0(room):
@@ -206,17 +203,63 @@ def draw_room5(room):
 # def draw_final_boss(room):
 
 
-def room_choice(background, num):
+def room_choice(background, room, enemy, player):
     """randomise room choice"""
-    if num == 0:
+    if room == 0:
         draw_room0(background)
-    elif num == 1:
+
+    elif room == 1:
         draw_room1(background)
-    elif num == 2:
-        draw_room2(background)
-    elif num == 3:
-        draw_room3(background)
-    elif num == 4:
-        draw_room4(background)
-    elif num == 5:
-        draw_room5(background)
+        if enemy == 0:
+            pass
+        elif enemy == 1:
+            r1_e1()
+        elif enemy == 2:
+            r1_e2()
+        elif enemy == 3:
+            r1_e3()
+        elif enemy == 4:
+            r1_e4(player)
+
+#    elif room == 2:
+#        draw_room2(background)
+#        if enemy == 0:
+#
+#        elif enemy == 1:
+#
+#        elif enemy == 2:
+#
+#        elif enemy == 3:
+#
+#
+#    elif room == 3:
+#        draw_room3(background)
+#        if enemy == 0:
+#
+#        elif enemy == 1:
+#
+#        elif enemy == 2:
+#
+#        elif enemy == 3:
+#
+#
+#    elif room == 4:
+#        draw_room4(background)
+#        if enemy == 0:
+#
+#        elif enemy == 1:
+#
+#        elif enemy == 2:
+#
+#        elif enemy == 3:
+#
+#
+#    elif room == 5:
+#        draw_room5(background)
+#        if enemy == 0:
+#
+#        elif enemy == 1:
+#
+#        elif enemy == 2:
+#
+#        elif enemy == 3:

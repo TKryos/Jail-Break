@@ -2,12 +2,13 @@ import pygame
 import sys
 from game_parameters import *
 from rooms import (draw_f1_start_room, draw_open_doors, draw_closed_doors,
-                   draw_room1, draw_room2, draw_room3, draw_room4, draw_room5,
-                   room_choice, r1_e1, r1_e2, r1_e3, r1_e4, )
+                   draw_room0, draw_room1, draw_room2, draw_room3, draw_room4, draw_room5,
+                   room_choice, r1_e1, r1_e2, r1_e3, r1_e4)
 from player import knives, Knife
 from enemy import (guards, patrols, sentries, arrows, Arrow, broken_prisoners, enemies)
 from objects import (barriers, Barrier, floor_gashes, FloorGash,
                      door_bot, door_top, door_left, door_right, top_doors, left_doors, right_doors, bot_doors)
+import f1_rooms
 from background import draw_background
 import random
 
@@ -19,6 +20,7 @@ def main(player):
     pygame.display.set_caption("Floor_1")
 
     draw_background(floor1)
+    draw_room0(floor1)
 
     clock = pygame.time.Clock()
     # Make the possible rooms and their states
@@ -26,19 +28,20 @@ def main(player):
     room_c_state = 1
     draw_open_doors(floor1)
 
-    room_l = random.randint(0, 6)
+    room_l, enemy_l = random.randint(0, 6), random.randint(0, 4)
     room_l_state = 0
 
-    room_r = random.randint(0, 6)
+    room_r, enemy_r = random.randint(0, 6), random.randint(0, 4)
     room_r_state = 0
 
-    room_u = random.randint(0, 6)
-    room_u_state = 0
+    room_u, enemy_u = 1, 1 #random.randint(0, 6), random.randint(0, 4)
+    enemies_u = random.randint(0, 4)
+    room_u_state = [0]
 
-    room_d = random.randint(0, 6)
+    room_d, enemy_d = random.randint(0, 6), random.randint(0, 4)
     room_d_state = 0
 
-    room_uu = random.randint(0, 6)
+    room_uu, enemy_u = random.randint(0, 6), random.randint(0, 4)
     room_uu_state = 0
 
     room_uuu = 0
@@ -51,16 +54,17 @@ def main(player):
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
 
-    running = True
-    while running and player.hp > 0:
+    floor = True
+    while floor and player.hp > 0:
+
+        # This is code that goes into ever floor/room
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
-            # This is all code that is going into every floor/room
-
             # This is for throwing knives
+
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 knife = Knife(player.rect.centerx, player.rect.centery, *event.pos, player.rng)
 
@@ -122,12 +126,13 @@ def main(player):
         # Code to tell what door you are entering
         if pygame.sprite.spritecollide(player, top_doors, False):
             print('going up')
-            if room_u_state == 0:
+            if room_u_state[0] == 0:
                 player.rect.center = (SCREEN_WIDTH//2, JAIL_Y_END - TILE_SIZE/2)
-
+                f1_rooms.room_u0(player, room_u_state, room_u, enemy_u)
             if room_u_state == 1:
                 player.rect.center = (SCREEN_WIDTH//2, JAIL_Y_END - TILE_SIZE/2)
-
+                f1_rooms.room_u1(player, room_u)
+                draw_room0(floor1)
         if pygame.sprite.spritecollide(player, right_doors, False):
             print('right way')
 
