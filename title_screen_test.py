@@ -23,11 +23,14 @@ draw_background(background)
 draw_f1_start_room(background)
 draw_open_doors(background)
 
-#create the player
-theif = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
-background.blit(theif.image, (SCREEN_WIDTH//2 - 14, SCREEN_HEIGHT//2 - 14))
+floor_states = {'floor 1': 0, 'floor 2': 0, 'floor 3': 0, 'floor 4': 0, 'floor 5': 0,
+                'floor 6': 0, 'floor 7': 0, 'floor 8': 0, 'floor 9': 0, 'final floor': 0}
 
-LIVES = theif.hp
+#create the player
+thief = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
+background.blit(thief.image, (SCREEN_WIDTH//2 - 14, SCREEN_HEIGHT//2 - 14))
+
+LIVES = thief.hp
 hearts = pygame.image.load("assets/tiles/heart.png").convert()
 hearts.set_colorkey((0, 0, 0))
 #clock object
@@ -41,6 +44,7 @@ background.blit(Exit, (SCREEN_WIDTH - int(Exit.get_width()) - 50, SCREEN_HEIGHT/
 play_button_rect = pygame.Rect(40, SCREEN_HEIGHT//2 - 35, 280, 65)
 exit_button_rect = pygame.Rect((SCREEN_WIDTH - 305, SCREEN_HEIGHT//2 - 35, 265, 65))
 
+TIME = 0
 LAST_THROW_TIME = 0
 LAST_DMG_TIME = 0
 TIME_SINCE_DOOR = 0
@@ -58,7 +62,7 @@ while game:
                 # Check if the mouse clicked on the playbutton
                 if play_button_rect.collidepoint(mouse_pos):
                     clear_objects()
-                    floor_one.main(theif)
+                    floor_one.main(thief)
 
 
                 # Check if the mouse clicked on the exit button
@@ -72,7 +76,7 @@ while game:
     pygame.draw.rect(screen, (0, 200, 0), play_button_rect)
     pygame.draw.rect(screen, (200, 0, 0), exit_button_rect)
 
-    for i in range(theif.hp):
+    for i in range(thief.hp):
         if i <= 9:
             screen.blit(hearts, (JAIL_X_START + TILE_SIZE*(i-1), JAIL_Y_END + TILE_SIZE))
         elif i <= 19:

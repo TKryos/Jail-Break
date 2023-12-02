@@ -40,7 +40,7 @@ def room_uu1(player, room_data):
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
@@ -142,17 +142,15 @@ def room_uu1(player, room_data):
 
         # Code to tell what door you are entering
         if pygame.sprite.spritecollide(player, top_doors, False):
-            print('uu to uuu')
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
-            clear_objects()
+            print('uu to uuu')
 
-            # For if you come back into the room
-
-
-        if pygame.sprite.spritecollide(player, bot_doors, False):
+        # Outer to Inner
+        elif pygame.sprite.spritecollide(player, bot_doors, False):
             print('uu to u')
-            player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
             clear_objects()
+            player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
+
             # Returns to previous room
             break
 
@@ -201,12 +199,13 @@ def room_uu0(player, room_data):
     draw_top_closed_door(floor1)
     draw_bot_closed_door(floor1)
     room_choice(floor1, room_data['room uu']['layout'], room_data['room uu']['enemy spawn'], player)
+    print(room_data['room uu']['layout'], room_data['room uu']['enemy spawn'])
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
@@ -365,12 +364,13 @@ def room_u1(player, room_data):
     draw_top_open_door(floor1)
     draw_bot_open_door(floor1)
     room_choice(floor1, room_data['room u']['layout'], 0, player)
+    print(room_data['room u']['layout'])
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
@@ -476,11 +476,21 @@ def room_u1(player, room_data):
             if room_data['room uu']['state'] == 0:
                 print('u to uu')
                 room_uu0(player, room_data)
-                clear_objects()
 
-            # For if you come back into the room
+                # For if you come back into the room
+                draw_top_open_door(floor1)
+                draw_bot_open_door(floor1)
+                room_choice(floor1, room_data['room u']['layout'], 0, player)
+
             elif room_data['room uu']['state'] == 1:
+                print('u to uu cleared')
                 room_uu1(player, room_data)
+
+                # For if you come back into th eroom
+                draw_top_open_door(floor1)
+                draw_bot_open_door(floor1)
+                room_choice(floor1, room_data['room u']['layout'], 0, player)
+
         if pygame.sprite.spritecollide(player, bot_doors, False):
             print('u to c')
             clear_objects()
@@ -534,12 +544,13 @@ def room_u0(player, room_data):
     draw_top_closed_door(floor1)
     draw_bot_closed_door(floor1)
     room_choice(floor1, room_data['room u']['layout'], room_data['room u']['enemy spawn'], player)
+    print(room_data['room u']['layout'], room_data['room u']['enemy spawn'])
     clock = pygame.time.Clock()
 
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
@@ -703,7 +714,7 @@ def room_d1(player, room_data):
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
@@ -804,13 +815,17 @@ def room_d1(player, room_data):
         # This is all code that is going into every floor/room
 
         # Code to tell what door you are entering
+        # Outer to inner
         if pygame.sprite.spritecollide(player, top_doors, False):
-            print('u to c')
+            print('d to c')
             clear_objects()
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
 
             # Returns to previous room
             break
+
+
+
 
         # Draw background
         screen.blit(floor1, (0, 0))
@@ -861,7 +876,7 @@ def room_d0(player, room_data):
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
-    hearts.set_colorkey((255, 255, 255))
+    hearts.set_colorkey((0, 0, 0))
 
     LAST_THROW_TIME = 0
     LAST_DMG_TIME = 0
