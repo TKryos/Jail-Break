@@ -373,7 +373,8 @@ def room_uuu1(player, room_data, floor_states):
 
         # Limit the fps
         clock.tick(30)
-    room_uuu2(player, room_data, floor_states)
+    if room_data['room uuu']['state'] == 2:
+        room_uuu2(player, room_data, floor_states)
 
 
 def room_uuu0(player, room_data, floor_states):
@@ -2026,4 +2027,5 @@ def room_d0(player, room_data, floor_states):
 
         # Limit the fps
         clock.tick(30)
-    room_d1(player, room_data, floor_states)
+    if room_data['room d']['state'] == 1:
+        room_d1(player, room_data, floor_states)

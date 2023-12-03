@@ -8,7 +8,7 @@ from background import draw_background
 from tiles_etc import title_font
 from player import Player
 from objects import clear_objects
-import floor_one, floor_two
+import floor_one, floor_two, floor_three
 
 
 #initialize pygame
@@ -23,7 +23,7 @@ draw_background(background)
 draw_f1_start_room(background)
 draw_open_doors(background)
 
-floor_states = {'floor 1': 0, 'floor 2': 0, 'floor 3': 0, 'floor 4': 0, 'floor 5': 0,
+floor_states = {'floor 1': 1, 'floor 2': 1, 'floor 3': 0, 'floor 4': 0, 'floor 5': 0,
                 'floor 6': 0, 'floor 7': 0, 'floor 8': 0, 'floor 9': 0, 'final floor': 0}
 
 #create the player
@@ -71,6 +71,11 @@ while game:
                         clear_objects()
                         floor_two.main(thief, floor_states)
 
+                    if sum(floor_states.values()) == 2:
+
+                        clear_objects()
+                        floor_three.main(thief, floor_states)
+
                 # Check if the mouse clicked on the exit button
                 elif exit_button_rect.collidepoint(mouse_pos):
                     game = False
@@ -101,6 +106,7 @@ while game:
 
     #limit the fps
     clock.tick(30)
+
 
 #quit pygame
 pygame.quit()

@@ -1,6 +1,6 @@
 import pygame
 from game_parameters import *
-from items import hp_pots
+from items import hp_pots, items
 
 Hitbox_color = (140, 140, 0)
 
@@ -98,3 +98,6 @@ def clear_objects():
         right_doors.remove(door)
     for hp_pot in hp_pots:
         hp_pots.remove(hp_pot)
+    for group in items:
+        for item in group:
+            group.remove(item)

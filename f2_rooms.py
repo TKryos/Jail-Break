@@ -382,7 +382,8 @@ def room_uulll0(player, room_data, floor_states):
 
         # Limit the fps
         clock.tick(30)
-    room_uulll1(player, room_data, floor_states)
+    if room_data['room uulll']['state'] == 1:
+        room_uulll1(player, room_data, floor_states)
 
 
 def room_uull2(player, room_data, floor_states):
@@ -749,7 +750,7 @@ def room_uull1(player, room_data, floor_states):
         current_time = pygame.time.get_ticks()
         if current_time - TIME_SINCE_DOOR > 500:
             if len(hp_pots) == 0:
-                room_data['room uu']['state'] = 2
+                room_data['room uull']['state'] = 2
                 room = False
 
         # goes back to the beginning if the floor state is 1
@@ -1343,7 +1344,8 @@ def room_uurr1(player, room_data, floor_states):
 
         # Limit the fps
         clock.tick(30)
-    room_uurr2(player, room_data, floor_states)
+    if room_data['room uurr']['state'] == 2:
+        room_uurr2(player, room_data, floor_states)
 
 
 def room_uurr0(player, room_data, floor_states):
@@ -1533,7 +1535,7 @@ def room_uul2(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_open_door(floor1)
     draw_right_open_door(floor1)
-    room_choice(floor1, room_data['room uuu']['layout'], 0, player)
+    room_choice(floor1, room_data['room uul']['layout'], 0, player)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -2818,6 +2820,14 @@ def room_uur2(player, room_data, floor_states):
                 draw_open_boss_door_right(floor1)
                 room_choice(floor1, room_data['room uur']['layout'], 0, player)
 
+            elif room_data['room uurr']['state'] == 2:
+                room_uurr2(player, room_data, floor_states)
+
+                # For if you come back into th eroom
+                draw_left_open_door(floor1)
+                draw_open_boss_door_right(floor1)
+                room_choice(floor1, room_data['room uur']['layout'], 0, player)
+
         elif pygame.sprite.spritecollide(player, left_doors, False):
             clear_objects()
             player.rect.center = SPRITE_RIGHT
@@ -3011,6 +3021,14 @@ def room_uur1(player, room_data, floor_states):
 
             elif room_data['room uurr']['state'] == 1:
                 room_uurr1(player, room_data, floor_states)
+
+                # For if you come back into the room
+                draw_left_open_door(floor1)
+                draw_open_boss_door_right(floor1)
+                room_choice(floor1, room_data['room uur']['layout'], 0, player)
+
+            elif room_data['room uurr']['state'] == 2:
+                room_uurr2(player, room_data, floor_states)
 
                 # For if you come back into the room
                 draw_left_open_door(floor1)

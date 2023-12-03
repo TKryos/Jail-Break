@@ -44,10 +44,9 @@ def main(player, floor_states):
                  'room dd': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},
                  'room rrr': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},
                  'room ddl': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},
-                 'room rrrd': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},  # item
+                 'room rrrd': {'state': 0, 'layout': 0, 'item spawn': 0, 'pots': 0,},  # item
                  'room ddll': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},
-                 'room ddlll': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,},
-                 'room ddllll': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0,}}  # final
+                 'room ddlll': {'state': 0, 'layout': 0, 'final spawn': 0,'item spawn': 0, 'pots': 0,}}  # final
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
@@ -174,31 +173,139 @@ def main(player, floor_states):
 
                 # For if you come back into the room
                 clear_objects()
-
+                draw_room0(floor2)
                 draw_top_open_door(floor2)
-                draw_open_item_door_bot(floor2)
-
-                draw_f1_start_room(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
 
             elif room_data['room u']['state'] == 1:
                 f3_rooms.room_u1(player, room_data, floor_states)
 
                 # For if you come back into the room
                 clear_objects()
-
+                draw_room0(floor2)
                 draw_top_open_door(floor2)
-                draw_open_item_door_bot(floor2)
-
-                draw_f1_start_room(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
 
             elif room_data['room u']['state'] == 2:
                 f3_rooms.room_u2(player, room_data, floor_states)
 
                 # For if you come back into the room
                 clear_objects()
+                draw_room0(floor2)
                 draw_top_open_door(floor2)
-                draw_open_item_door_bot(floor2)
-                draw_f1_start_room(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+        elif pygame.sprite.spritecollide(player, bot_doors, False):
+            player.rect.center = SPRITE_TOP
+            if room_data['room d']['state'] == 0:
+                f3_rooms.room_d0(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room d']['state'] == 1:
+                f3_rooms.room_d1(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room d']['state'] == 2:
+                f3_rooms.room_d2(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+        elif pygame.sprite.spritecollide(player, left_doors, False):
+            player.rect.center = SPRITE_RIGHT
+            if room_data['room l']['state'] == 0:
+                f3_rooms.room_l0(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room l']['state'] == 1:
+                f3_rooms.room_l1(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room l']['state'] == 2:
+                f3_rooms.room_l2(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+        elif pygame.sprite.spritecollide(player, right_doors, False):
+            player.rect.center = SPRITE_LEFT
+            if room_data['room r']['state'] == 0:
+                print('here')
+                f3_rooms.room_r0(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room r']['state'] == 1:
+                f3_rooms.room_r1(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
+
+            elif room_data['room r']['state'] == 2:
+                f3_rooms.room_r2(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_room0(floor2)
+                draw_top_open_door(floor2)
+                draw_right_open_door(floor2)
+                draw_left_open_door(floor2)
+                draw_bot_open_door(floor2)
 
         if floor_states['floor 3'] == 1:
             break
