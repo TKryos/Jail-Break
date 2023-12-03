@@ -162,7 +162,7 @@ class Sentry(pygame.sprite.Sprite):
         self.y = y
         self.atk = atk
         self.hp = hp
-        self.rect.center = (x, y)
+        self.rect.topleft = (x, y)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)

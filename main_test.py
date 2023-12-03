@@ -3,8 +3,7 @@ import random
 import math
 import sys
 from game_parameters import *
-from rooms import (draw_f1_start_room, draw_room0, draw_room1, draw_room2, draw_room3,
-                   draw_room4, draw_room5, draw_room6, room_choice, r1_e1, r1_e2, r1_e3, r1_e4)
+from rooms import *
 from door_layouts import (draw_closed_doors, draw_top_closed_door, draw_bot_closed_door, draw_left_closed_door, draw_right_closed_door,
                           draw_open_doors, draw_top_open_door, draw_bot_open_door, draw_left_open_door, draw_right_open_door,
                           draw_closed_boss_door_top, draw_closed_boss_door_bot, draw_closed_boss_door_left, draw_closed_boss_door_right,
@@ -28,24 +27,27 @@ pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 background = screen.copy()
 
+player = Player(JAIL_X_END - TILE_SIZE // 2, SCREEN_HEIGHT/2)
+
 #overall background
 draw_background(background)
 
-draw_room6(background)
+draw_room4(background)
+r4_e5(player)
 draw_closed_boss_door_bot(background)
 draw_closed_boss_door_right(background)
 #room_choice(background)
 
 #create the player
-player = Player(JAIL_X_END - TILE_SIZE // 2, SCREEN_HEIGHT/2)
+
 
 hearts = pygame.image.load("assets/tiles/heart.png").convert()
 hearts.set_colorkey((255,255,255))
 
-pots1(1, background)
-pots1(0, background)
-pots2(0, background)
-pots2(1, background)
+#pots1(1, background)
+#pots1(0, background)
+#pots2(0, background)
+#pots2(1, background)
 
 #hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE*2))
 #spd_boosts.add(SpdUp(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*2))
@@ -71,7 +73,6 @@ clock = pygame.time.Clock()
 #background.blit(Play, (50, SCREEN_HEIGHT//2 - Play.get_height()//2))
 #background.blit(Exit, (SCREEN_WIDTH - int(Exit.get_width()) - 50, SCREEN_HEIGHT//2 - Play.get_height()//2))
 
-print(player.hp)
 
 #Main Loop
 running = True
@@ -92,6 +93,7 @@ while running and player.hp > 0:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_throw.mp3"))
                 knives.add(knife)
                 LAST_THROW_TIME = current_time
+                print('knife throw')
 ####code to randomly decide when a sentry fires an arrow
     for sentry in sentries:
 
@@ -99,6 +101,7 @@ while running and player.hp > 0:
         if chance == 1:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/arrow_throw.mp3"))
             arrows.add(Arrow(sentry.rect.centerx, sentry.rect.centery, player.rect.centerx, player.rect.centery))
+            print('arrow shot')
 
 ####code to check for damage from different enemies and limit how often you can take damage
     if pygame.sprite.spritecollide(player, guards, False):
@@ -107,6 +110,7 @@ while running and player.hp > 0:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
             player.hp -= GUARD_ATK
             LAST_DMG_TIME = current_time
+            print('guard dmg')
 
     if pygame.sprite.spritecollide(player, patrols, False):
         current_time = pygame.time.get_ticks()
@@ -114,6 +118,7 @@ while running and player.hp > 0:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
             player.hp -= PAT_ATK
             LAST_DMG_TIME = current_time
+            print('patrol dmg')
 
     if pygame.sprite.spritecollide(player, sentries, False):
         current_time = pygame.time.get_ticks()
@@ -121,6 +126,7 @@ while running and player.hp > 0:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
             player.hp -= SENTRY_ATK
             LAST_DMG_TIME = current_time
+            print('sentry dmg')
 
     if pygame.sprite.spritecollide(player, broken_prisoners, False):
         current_time = pygame.time.get_ticks()
@@ -128,6 +134,7 @@ while running and player.hp > 0:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
             player.hp -= BP_ATK
             LAST_DMG_TIME = current_time
+            print('bp dmg')
 
 
     if pygame.sprite.spritecollide(player, arrows, True):
@@ -136,12 +143,14 @@ while running and player.hp > 0:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
             player.hp -= ARROW_ATK
             LAST_DMG_TIME = current_time
+            print('arrow dmg')
 
     # Code that checks if projectiles collide with barriers and kills them
     for barrier in barriers:
         pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
         pygame.sprite.spritecollide(barrier, knives, True)
         pygame.sprite.spritecollide(barrier, arrows, True)
+        print('proj in wall')
 
     # Code that checks if hp pots are grabbed
     if player.maxhp > player.hp:
