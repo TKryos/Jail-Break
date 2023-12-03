@@ -26,7 +26,7 @@ item_door_indicators = pygame.transform.scale(
     pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0029.png"),
     (32, 32))
 
-stairs = pygame.transform.scale(
+stair_image = pygame.transform.scale(
     pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0039.png"),
     (32, 32))
 
@@ -51,5 +51,3 @@ knifespdup = pygame.transform.scale(
 spdup = pygame.transform.scale(
     pygame.image.load("assets/kenney_tiny-dungeon/Tiles/tile_0114.png"),
     (32, 32))
-
-

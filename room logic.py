@@ -1,4 +1,4 @@
-"""Code for going from inner room to outer room"""
+"""Code for going from first room to outer room"""
 #if pygame.sprite.spritecollide(player, top_doors, False):
 #    player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
 #    if room_data['room u']['state'] == 0:
@@ -22,7 +22,7 @@
 #        draw_open_item_door_bot(floor1)
 
 
-"""Code for going from outer room to more outer room"""
+"""Code for going from inner room to outer room"""
 #if pygame.sprite.spritecollide(player, top_doors, False):
 #    player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
 #    if room_data['room uu']['state'] == 0:

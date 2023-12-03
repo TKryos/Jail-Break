@@ -18,7 +18,7 @@ class Guard(pygame.sprite.Sprite):
         self.hp = hp
         self.atk = atk
         self.target = target
-        self.rect.center = (x,y)
+        self.rect.topleft = (x, y)
         self.x_move = 0     # Only used to see if it is moving or not
         self.y_move = 0     # Only used to see if it is moving or not
 
@@ -43,7 +43,7 @@ class Guard(pygame.sprite.Sprite):
                     self.y_move = 0
                     pass
 
-        #check for collision with barriers
+        # check for collision with barriers
         collisions = pygame.sprite.spritecollide(self, barriers, False)
         if sum([self.x_move, self.y_move]) == 1:
             for barrier in collisions:
@@ -67,7 +67,6 @@ class Guard(pygame.sprite.Sprite):
                 elif self.rect.bottom > barrier.rect.top:
                     self.rect.bottom = barrier.rect.top
 
-
         # Check for collision with floor_gashes
         collisions = pygame.sprite.spritecollide(self, floor_gashes, False)
         for floor_gash in collisions:
@@ -79,6 +78,7 @@ class Guard(pygame.sprite.Sprite):
                 self.rect.top = floor_gash.rect.bottom
             if self.rect.bottom > floor_gash.rect.top:
                 self.rect.bottom = floor_gash.rect.top
+
 
 class Patrol(pygame.sprite.Sprite):
     def __init__(self, x, y, spd = PAT_SPD, atk = PAT_ATK, hp = PAT_HP):
@@ -92,7 +92,7 @@ class Patrol(pygame.sprite.Sprite):
         self.spd = spd
         self.atk = atk
         self.hp = hp
-        self.rect.center = (x, y)
+        self.rect.topleft = (x, y)
         self.direction = random.choice(['up', 'down', 'left', 'right'])
 
     def draw(self, surface):
@@ -119,7 +119,6 @@ class Patrol(pygame.sprite.Sprite):
             if self.rect.right > JAIL_X_END:
                 self.rect.right = JAIL_X_END
                 self.direction = random.choice(['up', 'down', 'left'])
-
 
         collisions = pygame.sprite.spritecollide(self, barriers, False)
         for barrier in collisions:
@@ -151,6 +150,7 @@ class Patrol(pygame.sprite.Sprite):
                 self.rect.right = floor_gash.rect.left
                 self.direction = random.choice(['up', 'down', 'left'])
 
+
 class Sentry(pygame.sprite.Sprite):
     def __init__(self, x, y, atk = SENTRY_ATK, hp = SENTRY_HP):
         super().__init__()
@@ -167,7 +167,9 @@ class Sentry(pygame.sprite.Sprite):
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
-#for ranged enemies to use
+# for ranged enemies to use
+
+
 class Arrow(pygame.sprite.Sprite):
     def __init__(self, start_x, start_y, target_x, target_y):
         super().__init__()
@@ -200,6 +202,7 @@ class Arrow(pygame.sprite.Sprite):
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
+
 class Broken_Prisoner(pygame.sprite.Sprite):
     def __init__(self, x, y, spd = PAT_SPD, atk = PAT_ATK, hp = PAT_HP):
         super().__init__()
@@ -212,7 +215,7 @@ class Broken_Prisoner(pygame.sprite.Sprite):
         self.spd = spd
         self.atk = atk
         self.hp = hp
-        self.rect.center = (x, y)
+        self.rect.topleft = (x, y)
         self.direction = random.choice(['up', 'down', 'left', 'right'])
 
     def draw(self, surface):
@@ -261,9 +264,6 @@ class Broken_Prisoner(pygame.sprite.Sprite):
                 self.rect.bottom = floor_gash.rect.top
             if self.rect.right > floor_gash.rect.left:
                 self.rect.right = floor_gash.rect.left
-
-
-
 
 
 guards = pygame.sprite.Group()

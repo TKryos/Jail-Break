@@ -16,7 +16,7 @@ from player import Player, Knife, knives
 from enemy import (Guard, Sentry, Patrol, Broken_Prisoner,
                    guards, sentries, patrols, broken_prisoners, Arrow, arrows, enemies)
 from objects import (barriers, Barrier, floor_gashes, FloorGash)
-from items import (HealthPot, hp_pots,
+from items import (HealthPot, hp_pots, pots1, pots2,
                    SpdUp, spd_boosts, AtkSpdUp, atk_spd_boosts, KnifeSpdUp, knife_spd_boosts,
                    MaxHpUp, max_hp_boosts, AtkUp, atk_boosts, RngUp, rng_boosts, items)
 
@@ -31,16 +31,21 @@ background = screen.copy()
 #overall background
 draw_background(background)
 
-draw_room0(background)
+draw_room6(background)
 draw_closed_boss_door_bot(background)
 draw_closed_boss_door_right(background)
-draw_room2(background)
+#room_choice(background)
 
 #create the player
 player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
 
 hearts = pygame.image.load("assets/tiles/heart.png").convert()
 hearts.set_colorkey((255,255,255))
+
+pots1(1, background)
+pots1(0, background)
+pots2(0, background)
+pots2(1, background)
 
 #hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE*2))
 #spd_boosts.add(SpdUp(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*2))
@@ -51,7 +56,7 @@ hearts.set_colorkey((255,255,255))
 #rng_boosts.add(RngUp(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*4))
 
 #create the enemies
-r1_e4(player)
+#r1_e3()
 #patrols.add(Patrol(JAIL_X_START + TILE_SIZE * 2, JAIL_Y_START + TILE_SIZE * 2))
 #guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player))
 #sentries.add(Sentry(JAIL_X_START + 16, JAIL_Y_START + 16))

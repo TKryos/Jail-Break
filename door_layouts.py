@@ -1,8 +1,10 @@
 import pygame
 from game_parameters import *
-from tiles_etc import boss_door_indicators, item_door_indicators, door_closed, door_open
+from tiles_etc import (boss_door_indicators, item_door_indicators,
+                       door_closed, door_open, stair_image)
 from objects import (top_doors, left_doors, right_doors, bot_doors,
-                     door_top, door_left, door_right, door_bot)
+                     door_top, door_left, door_right, door_bot,
+                     stairs, stair)
 
 
 def draw_closed_boss_door_top(room):
@@ -227,3 +229,7 @@ def draw_right_open_door(room):
     room.blit(pygame.transform.rotate(door_open.convert(), 270),
               (JAIL_X_END, JAIL_Y_START + TILE_SIZE * 3))
 
+
+def draw_stairs(room):
+    stairs.add(stair)
+    room.blit(stair_image, (JAIL_X_START + TILE_SIZE*5, JAIL_Y_START))

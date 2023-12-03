@@ -17,7 +17,7 @@ from background import draw_background
 import random
 
 
-def main(player):
+def main(player, floor_states):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
@@ -33,13 +33,15 @@ def main(player):
 
     clock = pygame.time.Clock()
     # set room states, layout, and enemies
-    floor_layout = random.randint(0, 7)
-    enemy_spawn = random.randint(1, 4)
-    room_data = {'room c': {'state': 0, 'layout': 0, 'enemy spawn': 0}, # starting room
-                 'room u': {'state': 0, 'layout': random.randint(0, 7), 'enemy spawn': random.randint(1, 4)},
-                 'room d': {'state': 0, 'layout': 0, 'enemy spawn': 0}, # Item room
-                 'room uu': {'state': 0, 'layout': random.randint(0, 7), 'enemy spawn': random.randint(1, 4)},
-                 'room uuu': {'state': 0, 'layout': 0, 'enemy spawn': 0}} # Final room
+    room_data = {'room c': {'state': 0, 'layout': 0},  # starting room
+                 'room u': {'state': 0, 'layout': 0,
+                            'enemy spawn': 0, 'pots': 1},
+                 'room d': {'state': 0, 'layout': 0, 'item spawn': random.randint(0, 5)},  # Item room
+
+                 'room uu': {'state': 0, 'layout': random.randint(0, 6),
+                             'enemy spawn': random.randint(1, 4), 'pots': 1},
+                 'room uuu': {'state': 0, 'layout': 0, 'enemy spawn': 0,
+                              'item spawn': random.randint(0, 5)}}  # Final room
     print(room_data)
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
@@ -50,7 +52,6 @@ def main(player):
 
     floor = True
     while floor and player.hp > 0:
-
         # This is code that goes into ever floor/room
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -126,7 +127,7 @@ def main(player):
             player.knife_spd_up(1)
 
         if pygame.sprite.spritecollide(player, max_hp_boosts, True):
-            player.max_hp_up(1)
+            player.max_hp_up(2)
 
         if pygame.sprite.spritecollide(player, atk_boosts, True):
             player.atk_up(5)
@@ -150,47 +151,66 @@ def main(player):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
             if room_data['room u']['state'] == 0:
                 print('c to u')
-                f1_rooms.room_u0(player, room_data)
+                f1_rooms.room_u0(player, room_data, floor_states)
 
                 # For if you come back into the room
                 clear_objects()
-                draw_f1_start_room(floor1)
+
                 draw_top_open_door(floor1)
                 draw_open_item_door_bot(floor1)
+
+                draw_f1_start_room(floor1)
 
             elif room_data['room u']['state'] == 1:
                 print('c to u cleared')
-                f1_rooms.room_u1(player, room_data)
+                f1_rooms.room_u1(player, room_data, floor_states)
 
                 # For if you come back into the room
                 clear_objects()
-                draw_f1_start_room(floor1)
+
                 draw_top_open_door(floor1)
                 draw_open_item_door_bot(floor1)
+
+                draw_f1_start_room(floor1)
+
+            elif room_data['room u']['state'] == 2:
+                print('c to u no pots')
+                f1_rooms.room_u2(player, room_data, floor_states)
+
+                # For if you come back into the room
+                clear_objects()
+                draw_top_open_door(floor1)
+                draw_open_item_door_bot(floor1)
+                draw_f1_start_room(floor1)
 
         elif pygame.sprite.spritecollide(player, bot_doors, False):
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
             if room_data['room d']['state'] == 0:
                 print('c to d')
-                f1_rooms.room_d0(player, room_data)
+                f1_rooms.room_d0(player, room_data, floor_states)
 
-                #For if you come back into the room
+                # For if you come back into the room
                 clear_objects()
-                draw_f1_start_room(floor1)
+
                 draw_top_open_door(floor1)
                 draw_open_item_door_bot(floor1)
+
+                draw_f1_start_room(floor1)
 
             elif room_data['room d']['state'] == 1:
                 print('c to d cleared')
-                f1_rooms.room_d1(player, room_data)
+                f1_rooms.room_d1(player, room_data, floor_states)
 
-                #For if you come back into the room
+                # For if you come back into the room
                 clear_objects()
-                draw_f1_start_room(floor1)
+                # draw the doors of the previous room
                 draw_top_open_door(floor1)
                 draw_open_item_door_bot(floor1)
+                # draw the previous room
+                draw_f1_start_room(floor1)
 
-
+        if floor_states['floor 1'] == 1:
+            break
 
         # Draw background
         screen.blit(floor1, (0,0))

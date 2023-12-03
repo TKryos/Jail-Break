@@ -2,7 +2,7 @@ import pygame
 from game_parameters import *
 from objects import (top_doors, bot_doors, left_doors, right_doors, door_top, door_left, door_right, door_bot,
                      barriers, Barrier, floor_gashes, FloorGash)
-from tiles_etc import (tutorial_font,basic_wall, floor_gash,
+from tiles_etc import (tutorial_font,basic_wall, floor_gash, stair_image,
                        door_open, door_closed, boss_door_indicators, item_door_indicators)
 from enemy import (patrols, Patrol, sentries, Sentry,
                    guards, Guard, broken_prisoners, Broken_Prisoner)
@@ -36,7 +36,39 @@ def draw_room0(room):
     pass
 
 
+def r0_e1(player):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+
+
+def r0_e2(player):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+
+
+def r0_e3(player):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+
+
+def r0_e4(player):
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3))
+
+
+def r0_e5(player):
+    """"""
 def draw_room1(room):
+    """Large wall in the middle"""
     # Create the specific obstacles
     barriers.add(Barrier(JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE * 2, TILE_SIZE * 7, TILE_SIZE * 3))
     for x in range(JAIL_X_START + TILE_SIZE * 3, JAIL_X_END - TILE_SIZE * 3, TILE_SIZE):
@@ -45,35 +77,53 @@ def draw_room1(room):
 
 
 # The parenthesis can house the enemy stats if wanted
-def r1_e1():
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
 
-
-def r1_e2():
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-
-
-def r1_e3():
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-
-
-def r1_e4(player):
+def r1_e1(player):
     guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
                Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
                Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
                Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
 
 
+def r1_e2(player):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+
+
+def r1_e3(player):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE/2, JAIL_Y_START + TILE_SIZE/2),
+                 Sentry(JAIL_X_START + TILE_SIZE/2, JAIL_Y_END - TILE_SIZE/2),
+                 Sentry(JAIL_X_END - TILE_SIZE/2, JAIL_Y_START + TILE_SIZE/2),
+                 Sentry(JAIL_X_END - TILE_SIZE/2, JAIL_Y_END - TILE_SIZE/2))
+
+
+def r1_e4(player):
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+
+
+def r1_e5(player):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE*3),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE*3))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+
+
+def r1_e6(playerp):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE))
+
+
 def draw_room2(room):
+    """Scattered Rocks"""
     # Create the specific obstacles
     barriers.add(Barrier(JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE * 1, TILE_SIZE, TILE_SIZE))
     room.blit(basic_wall.convert(), (JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE))
@@ -98,6 +148,7 @@ def draw_room2(room):
 
 
 def draw_room3(room):
+    """walls in corners"""
     # Create the specific obstacles
     # Top left corner
     barriers.add(Barrier(JAIL_X_START, JAIL_Y_START, TILE_SIZE * 4, TILE_SIZE))
@@ -126,6 +177,7 @@ def draw_room3(room):
 
 
 def draw_room4(room):
+    """Holes in corners"""
     floor_gash.set_colorkey((255, 255, 255))
     # Create the specific obstacles
     # Top left
@@ -155,6 +207,7 @@ def draw_room4(room):
 
 
 def draw_room5(room):
+    """Center island defined by floor gashes"""
     floor_gash.set_colorkey((255, 255, 255))
 
     # Middle island
@@ -171,6 +224,7 @@ def draw_room5(room):
 
 
 def draw_room6(room):
+    """Scattered Holes"""
     floor_gash.set_colorkey((255, 255, 255))
 
     # Create the specific obstacles
@@ -195,33 +249,41 @@ def draw_room6(room):
     floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3, TILE_SIZE, TILE_SIZE))
     room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3))
 
-# def draw_boss_room1(room):
-
-# def draw_boss_room2(room):
-
-# def draw_final_boss(room):
-
 
 def room_choice(background, room, enemy, player):
     """randomize room choice"""
     if room == 0:
         draw_room0(background)
+        if enemy == 0:
+            pass
+        elif enemy == 1:
+            r0_e1(player)
+        elif enemy == 2:
+            r0_e2(player)
+        elif enemy == 3:
+            r0_e3(player)
+        elif enemy == 4:
+            r0_e4(player)
 
     elif room == 1:
         draw_room1(background)
         if enemy == 0:
             pass
         elif enemy == 1:
-            r1_e1()
+            r1_e1(player)
         elif enemy == 2:
-            r1_e2()
+            r1_e2(player)
         elif enemy == 3:
-            r1_e3()
+            r1_e3(player)
         elif enemy == 4:
             r1_e4(player)
+        elif enemy == 5:
+            r1_e5(player)
+        elif enemy == 6:
+            r1_e6(player)
 
-#    elif room == 2:
-#        draw_room2(background)
+    elif room == 2:
+        draw_room2(background)
 #        if enemy == 0:
 #
 #        elif enemy == 1:
@@ -231,8 +293,8 @@ def room_choice(background, room, enemy, player):
 #        elif enemy == 3:
 #
 #
-#    elif room == 3:
-#        draw_room3(background)
+    elif room == 3:
+        draw_room3(background)
 #        if enemy == 0:
 #
 #        elif enemy == 1:
@@ -242,8 +304,8 @@ def room_choice(background, room, enemy, player):
 #        elif enemy == 3:
 #
 #
-#    elif room == 4:
-#        draw_room4(background)
+    elif room == 4:
+        draw_room4(background)
 #        if enemy == 0:
 #
 #        elif enemy == 1:
@@ -253,8 +315,8 @@ def room_choice(background, room, enemy, player):
 #        elif enemy == 3:
 #
 #
-#    elif room == 5:
-#        draw_room5(background)
+    elif room == 5:
+        draw_room5(background)
 #        if enemy == 0:
 #
 #        elif enemy == 1:
@@ -263,8 +325,8 @@ def room_choice(background, room, enemy, player):
 #
 #        elif enemy == 3:
 
-#   elif room == 6:
-#       draw_room6(background)
+    elif room == 6:
+        draw_room6(background)
 #       if enemy == 0:
 #
 #       elif enemy == 1:

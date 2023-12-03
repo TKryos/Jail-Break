@@ -61,9 +61,11 @@ while game:
 
                 # Check if the mouse clicked on the playbutton
                 if play_button_rect.collidepoint(mouse_pos):
-                    clear_objects()
-                    floor_one.main(thief)
-
+                    if sum(floor_states.values()) == 0:
+                        clear_objects()
+                        floor_one.main(thief, floor_states)
+                    if sum(floor_states.values()) == 1:
+                        print('floor2placeholder')
 
                 # Check if the mouse clicked on the exit button
                 elif exit_button_rect.collidepoint(mouse_pos):

@@ -73,7 +73,7 @@ if pygame.sprite.spritecollide(player, knife_spd_boosts, True):
     player.knife_spd_up(1)
 
 if pygame.sprite.spritecollide(player, max_hp_boosts, True):
-    player.max_hp_up(1)
+    player.max_hp_up(2)
 
 if pygame.sprite.spritecollide(player, atk_boosts, True):
     player.atk_up(5)

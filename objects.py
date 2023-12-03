@@ -1,5 +1,6 @@
 import pygame
 from game_parameters import *
+from items import hp_pots
 
 Hitbox_color = (140, 140, 0)
 
@@ -71,6 +72,7 @@ door_top = DoorT(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START - TILE_SIZE + 1, TILE_
 door_left = DoorL(JAIL_X_START - TILE_SIZE + 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
 door_right = DoorR(JAIL_X_END - 1, JAIL_Y_START + TILE_SIZE*3, TILE_SIZE, TILE_SIZE)
 door_bot = DoorB(JAIL_X_START + TILE_SIZE*6, JAIL_Y_END - 1, TILE_SIZE, TILE_SIZE)
+stair = Stairs(JAIL_X_START + TILE_SIZE*5, JAIL_Y_START, TILE_SIZE, TILE_SIZE)
 
 barriers = pygame.sprite.Group()
 floor_gashes = pygame.sprite.Group()
@@ -94,3 +96,5 @@ def clear_objects():
         left_doors.remove(door)
     for door in right_doors:
         right_doors.remove(door)
+    for hp_pot in hp_pots:
+        hp_pots.remove(hp_pot)
