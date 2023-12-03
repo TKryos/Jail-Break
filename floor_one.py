@@ -35,7 +35,7 @@ def main(player, floor_states):
     # set room states, layout, and enemies
     room_data = {'room s': {'state': 0, 'layout': 0},  # starting room
                  'room u': {'state': 0, 'layout': 0,
-                            'enemy spawn': 1, 'pots': 0},
+                            'enemy spawn': 0, 'pots': 0},
                  'room d': {'state': 0, 'layout': 0, 'item spawn': 0},  # Item room
 
                  'room uu': {'state': 0, 'layout': 0,

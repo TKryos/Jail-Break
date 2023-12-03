@@ -8,7 +8,7 @@ from background import draw_background
 from tiles_etc import title_font
 from player import Player
 from objects import clear_objects
-import floor_one, floor_two, floor_three, floor_four
+import floor_one, floor_two, floor_three, floor_four, floor_five
 
 
 #initialize pygame
@@ -24,8 +24,7 @@ draw_background(background)
 draw_f1_start_room(background)
 draw_open_doors(background)
 
-floor_states = {'floor 1': 1, 'floor 2': 1, 'floor 3': 1, 'floor 4': 0, 'floor 5': 0,
-                'floor 6': 0, 'floor 7': 0, 'floor 8': 0, 'floor 9': 0, 'final floor': 0}
+floor_states = {'floor 1': 0, 'floor 2': 0, 'floor 3': 0, 'floor 4': 0, 'floor 5': 0}
 
 #create the player
 thief = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
@@ -81,6 +80,14 @@ while game and thief.hp > 0:
 
                         clear_objects()
                         floor_four.main(thief, floor_states)
+
+                    if sum(floor_states.values()) == 4:
+
+                        clear_objects()
+                        floor_five.main(thief, floor_states)
+
+                    if sum(floor_states.values()) == 5:
+                        print('You escaped!!!')
 
                 # Check if the mouse clicked on the exit button
                 elif exit_button_rect.collidepoint(mouse_pos):

@@ -576,7 +576,7 @@ def room_rrr2(player, room_data, floor_states):
     # Create the screen
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     floor1 = screen.copy()
-    pygame.display.set_caption("Floor_3")
+    pygame.display.set_caption("Floor_4")
 
     # Reset the room objects
     clear_objects()
