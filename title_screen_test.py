@@ -8,7 +8,7 @@ from background import draw_background
 from tiles_etc import title_font
 from player import Player
 from objects import clear_objects
-import floor_one, floor_two, floor_three
+import floor_one, floor_two, floor_three, floor_four
 
 
 #initialize pygame
@@ -17,13 +17,14 @@ pygame.init()
 #create the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 background = screen.copy()
+pygame.display.set_caption("JailBreak: Title Screen")
 
 #overall background
 draw_background(background)
 draw_f1_start_room(background)
 draw_open_doors(background)
 
-floor_states = {'floor 1': 1, 'floor 2': 1, 'floor 3': 0, 'floor 4': 0, 'floor 5': 0,
+floor_states = {'floor 1': 1, 'floor 2': 1, 'floor 3': 1, 'floor 4': 0, 'floor 5': 0,
                 'floor 6': 0, 'floor 7': 0, 'floor 8': 0, 'floor 9': 0, 'final floor': 0}
 
 #create the player
@@ -52,7 +53,7 @@ TIME_LAST_SCORE = 0
 #Main Loop
 game = True
 
-while game:
+while game and thief.hp > 0:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
@@ -75,6 +76,11 @@ while game:
 
                         clear_objects()
                         floor_three.main(thief, floor_states)
+
+                    if sum(floor_states.values()) == 3:
+
+                        clear_objects()
+                        floor_four.main(thief, floor_states)
 
                 # Check if the mouse clicked on the exit button
                 elif exit_button_rect.collidepoint(mouse_pos):
