@@ -14,4 +14,7 @@ dict1 = {'room':0, 'floor':1, 'state':2}
 for main in dict1:
     value = sum(dict1.values())
 
-print(value)
+for value in dict1.keys():
+    value = 0
+
+print(dict1)

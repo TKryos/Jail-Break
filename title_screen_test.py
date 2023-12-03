@@ -8,7 +8,7 @@ from background import draw_background
 from tiles_etc import title_font
 from player import Player
 from objects import clear_objects
-import floor_one
+import floor_one, floor_two
 
 
 #initialize pygame
@@ -48,6 +48,7 @@ TIME = 0
 LAST_THROW_TIME = 0
 LAST_DMG_TIME = 0
 TIME_SINCE_DOOR = 0
+TIME_LAST_SCORE = 0
 #Main Loop
 game = True
 
@@ -62,10 +63,13 @@ while game:
                 # Check if the mouse clicked on the playbutton
                 if play_button_rect.collidepoint(mouse_pos):
                     if sum(floor_states.values()) == 0:
+
                         clear_objects()
                         floor_one.main(thief, floor_states)
                     if sum(floor_states.values()) == 1:
-                        print('floor2placeholder')
+
+                        clear_objects()
+                        floor_two.main(thief, floor_states)
 
                 # Check if the mouse clicked on the exit button
                 elif exit_button_rect.collidepoint(mouse_pos):

@@ -21,8 +21,6 @@ from items import (HealthPot, hp_pots, item_choice, pots1, pots2,
 from background import draw_background
 import random
 
-# TODO: fix the double interact glitch when returning to a room
-
 
 def room_uuu2(player, room_data, floor_states):
     print('uuu2')
@@ -325,13 +323,7 @@ def room_uuu1(player, room_data, floor_states):
                 room = False
 
         # Code to tell what door you are entering
-        # Inner to Outer uu to uuu
-        if pygame.sprite.spritecollide(player, top_doors, False):
-            player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_END - TILE_SIZE / 2)
-            print('uu to uuu')
-
-        # Outer to Inner
-        elif pygame.sprite.spritecollide(player, bot_doors, False):
+        if pygame.sprite.spritecollide(player, bot_doors, False):
             print('uu to u')
             clear_objects()
             player.rect.center = (SCREEN_WIDTH // 2, JAIL_Y_START + TILE_SIZE / 2)
@@ -1080,6 +1072,7 @@ def room_uu0(player, room_data, floor_states):
                         enemy.kill()
         LIVES = player.hp
         # This is all code that is going into every floor/room
+
         # code to check if all enemies have been killed
         current_time = pygame.time.get_ticks()
         if current_time - TIME_SINCE_DOOR > 500:

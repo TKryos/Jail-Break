@@ -149,6 +149,7 @@ class Knife(pygame.sprite.Sprite):
                 or self.rect.bottom > JAIL_Y_END or self.rect.top < JAIL_Y_START
                 or abs(self.rect.x - self.start_x) > TILE_SIZE//2*self.rng or
                 abs(self.rect.y - self.start_y) > TILE_SIZE//2*self.rng):
+            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
             self.kill()
 
     def draw(self, surface):
