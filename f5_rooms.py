@@ -109,9 +109,8 @@ def room_rruuull2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -291,9 +290,8 @@ def room_rruuull1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -484,9 +482,8 @@ def room_rruuull0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -658,9 +655,8 @@ def room_rruuulu1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -834,9 +830,8 @@ def room_rruuulu0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -1023,9 +1018,8 @@ def room_rruuul2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -1254,9 +1248,8 @@ def room_rruuul1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -1492,9 +1485,8 @@ def room_rruuul0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -1670,9 +1662,8 @@ def room_rruuur2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -1850,9 +1841,8 @@ def room_rruuur1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -2037,9 +2027,8 @@ def room_rruuur0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -2217,9 +2206,8 @@ def room_rruuu2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -2457,9 +2445,8 @@ def room_rruuu1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -2704,9 +2691,8 @@ def room_rruuu0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -2883,9 +2869,8 @@ def room_rruu2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -3090,9 +3075,8 @@ def room_rruu1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -3304,9 +3288,8 @@ def room_rruu0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -3482,9 +3465,8 @@ def room_rrdd2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -3662,9 +3644,8 @@ def room_rrdd1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -3849,9 +3830,8 @@ def room_rrdd0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -4028,9 +4008,8 @@ def room_rru2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -4235,9 +4214,8 @@ def room_rru1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -4449,9 +4427,8 @@ def room_rru0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -4628,9 +4605,8 @@ def room_rrd2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -4835,9 +4811,8 @@ def room_rrd1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -5049,9 +5024,8 @@ def room_rrd0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -5229,9 +5203,8 @@ def room_rr2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -5469,9 +5442,8 @@ def room_rr1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -5716,9 +5688,8 @@ def room_rr0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -5895,9 +5866,8 @@ def room_r2(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -6102,9 +6072,8 @@ def room_r1(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:
@@ -6316,9 +6285,8 @@ def room_r0(player, room_data, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:

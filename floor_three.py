@@ -120,9 +120,8 @@ def main(player, floor_states):
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
-            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-            pygame.sprite.spritecollide(barrier, knives, True)
-            pygame.sprite.spritecollide(barrier, arrows, True)
+            if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+                pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
 
         # Code that checks if hp pots are grabbed
         if player.maxhp > player.hp:

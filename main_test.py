@@ -32,8 +32,8 @@ player = Player(JAIL_X_END - TILE_SIZE // 2, SCREEN_HEIGHT/2)
 #overall background
 draw_background(background)
 
-draw_room4(background)
-r4_e5(player)
+draw_room1(background)
+r1_e2(player)
 draw_closed_boss_door_bot(background)
 draw_closed_boss_door_right(background)
 #room_choice(background)
@@ -147,10 +147,9 @@ while running and player.hp > 0:
 
     # Code that checks if projectiles collide with barriers and kills them
     for barrier in barriers:
-        pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
-        pygame.sprite.spritecollide(barrier, knives, True)
-        pygame.sprite.spritecollide(barrier, arrows, True)
-        print('proj in wall')
+        if pygame.sprite.spritecollide(barrier, knives, True) or pygame.sprite.spritecollide(barrier, arrows, True):
+            pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_wall.mp3"))
+            print('proj in wall')
 
     # Code that checks if hp pots are grabbed
     if player.maxhp > player.hp:
