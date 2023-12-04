@@ -79,35 +79,35 @@ def room_ddlll2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -261,35 +261,35 @@ def room_ddlll1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -411,7 +411,7 @@ def room_ddlll0(player, room_data, floor_states):
 
     draw_background(floor1)
     draw_closed_boss_door_right(floor1)
-    room_choice(floor1, room_data['room ddlll']['layout'], room_data['room ddlll']['final spawn'], player)
+    room_choice(floor1, room_data['room ddlll']['layout'], room_data['room ddlll']['final spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -454,35 +454,35 @@ def room_ddlll0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -628,35 +628,35 @@ def room_rrrd1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -760,7 +760,7 @@ def room_rrrd0(player, room_data, floor_states):
 
     draw_background(floor1)
     draw_open_item_door_top(floor1)
-    room_choice(floor1, room_data['room rrrd']['layout'], 0, player)
+    room_choice(floor1, room_data['room rrrd']['layout'], 0, player, 2)
     item_choice(room_data['room rrrd']['item spawn'], floor1)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
@@ -804,35 +804,35 @@ def room_rrrd0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -992,35 +992,35 @@ def room_ddll2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -1199,35 +1199,35 @@ def room_ddll1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -1370,7 +1370,7 @@ def room_ddll0(player, room_data, floor_states):
     draw_background(floor1)
     draw_closed_boss_door_left(floor1)
     draw_right_closed_door(floor1)
-    room_choice(floor1, room_data['room ddll']['layout'], room_data['room ddll']['enemy spawn'], player)
+    room_choice(floor1, room_data['room ddll']['layout'], room_data['room ddll']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -1413,35 +1413,35 @@ def room_ddll0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -1592,35 +1592,35 @@ def room_ddl2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -1799,35 +1799,35 @@ def room_ddl1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -1970,7 +1970,7 @@ def room_ddl0(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_closed_door(floor1)
     draw_right_closed_door(floor1)
-    room_choice(floor1, room_data['room ddl']['layout'], room_data['room ddl']['enemy spawn'], player)
+    room_choice(floor1, room_data['room ddl']['layout'], room_data['room ddl']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -2013,35 +2013,35 @@ def room_ddl0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -2192,35 +2192,35 @@ def room_rrr2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -2391,35 +2391,35 @@ def room_rrr1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -2554,7 +2554,7 @@ def room_rrr0(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_closed_door(floor1)
     draw_closed_item_door_bot(floor1)
-    room_choice(floor1, room_data['room rrr']['layout'], room_data['room rrr']['enemy spawn'], player)
+    room_choice(floor1, room_data['room rrr']['layout'], room_data['room rrr']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -2597,35 +2597,35 @@ def room_rrr0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -2776,35 +2776,35 @@ def room_dd2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -2983,35 +2983,35 @@ def room_dd1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -3154,7 +3154,7 @@ def room_dd0(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_closed_door(floor1)
     draw_top_closed_door(floor1)
-    room_choice(floor1, room_data['room dd']['layout'], room_data['room dd']['enemy spawn'], player)
+    room_choice(floor1, room_data['room dd']['layout'], room_data['room dd']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -3197,35 +3197,35 @@ def room_dd0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -3376,35 +3376,35 @@ def room_rr2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -3583,35 +3583,35 @@ def room_rr1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -3754,7 +3754,7 @@ def room_rr0(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_closed_door(floor1)
     draw_right_closed_door(floor1)
-    room_choice(floor1, room_data['room rr']['layout'], room_data['room rr']['enemy spawn'], player)
+    room_choice(floor1, room_data['room rr']['layout'], room_data['room rr']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -3797,35 +3797,35 @@ def room_rr0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -3976,35 +3976,35 @@ def room_d2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -4183,35 +4183,35 @@ def room_d1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -4354,7 +4354,7 @@ def room_d0(player, room_data, floor_states):
     draw_background(floor1)
     draw_bot_closed_door(floor1)
     draw_top_closed_door(floor1)
-    room_choice(floor1, room_data['room d']['layout'], room_data['room d']['enemy spawn'], player)
+    room_choice(floor1, room_data['room d']['layout'], room_data['room d']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -4397,35 +4397,35 @@ def room_d0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -4575,35 +4575,35 @@ def room_u2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -4755,35 +4755,35 @@ def room_u1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -4899,7 +4899,7 @@ def room_u0(player, room_data, floor_states):
 
     draw_background(floor1)
     draw_bot_closed_door(floor1)
-    room_choice(floor1, room_data['room u']['layout'], room_data['room u']['enemy spawn'], player)
+    room_choice(floor1, room_data['room u']['layout'], room_data['room u']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -4942,35 +4942,35 @@ def room_u0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -5120,35 +5120,35 @@ def room_l2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -5300,35 +5300,35 @@ def room_l1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -5444,7 +5444,7 @@ def room_l0(player, room_data, floor_states):
 
     draw_background(floor1)
     draw_right_closed_door(floor1)
-    room_choice(floor1, room_data['room l']['layout'], room_data['room l']['enemy spawn'], player)
+    room_choice(floor1, room_data['room l']['layout'], room_data['room l']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -5487,35 +5487,35 @@ def room_l0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -5666,35 +5666,35 @@ def room_r2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -5873,35 +5873,35 @@ def room_r1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:
@@ -6044,7 +6044,7 @@ def room_r0(player, room_data, floor_states):
     draw_background(floor1)
     draw_left_closed_door(floor1)
     draw_right_closed_door(floor1)
-    room_choice(floor1, room_data['room r']['layout'], room_data['room r']['enemy spawn'], player)
+    room_choice(floor1, room_data['room r']['layout'], room_data['room r']['enemy spawn'], player, 2)
     clock = pygame.time.Clock()
     TIME_SINCE_DOOR = pygame.time.get_ticks()
 
@@ -6087,35 +6087,35 @@ def room_r0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= GUARD_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, patrols, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= PAT_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, sentries, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= SENTRY_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, broken_prisoners, False):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/knife_in_flesh.mp3"))
-                player.hp -= ARROW_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
         # Code that checks if projectiles collide with barriers and kills them
         for barrier in barriers:

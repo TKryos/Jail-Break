@@ -132,7 +132,7 @@ while running and player.hp > 0:
         current_time = pygame.time.get_ticks()
         if current_time - LAST_DMG_TIME >= 1000:
             pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-            player.hp -= BP_ATK
+            player.hp -= LVLDMG
             LAST_DMG_TIME = current_time
             print('bp dmg')
 

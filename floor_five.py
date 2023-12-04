@@ -34,17 +34,17 @@ def main(player, floor_states):
     clock = pygame.time.Clock()
 
     room_data = {'room s': {'state': 0, 'layout': 0},  # starting room
-                 'room r': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rr': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rrd': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rru': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rrdd': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rruu': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rruuu': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rruuur': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rruuul': {'state': 0, 'layout': 0, 'enemy spawn': 0, 'pots': 0},
-                 'room rruuulu': {'state': 0, 'layout': 0, 'item spawn': 0},  # item
-                 'room rruuull': {'state': 0, 'layout': 0, 'final spawn': 0, 'item spawn': 0}}  # final
+                 'room r': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rr': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rrd': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rru': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rrdd': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rruu': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rruuu': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rruuur': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rruuul': {'state': 0, 'layout': random.randint(0,5), 'enemy spawn': random.randint(0,6), 'pots': 0},
+                 'room rruuulu': {'state': 0, 'layout': 0, 'item spawn': random.randint(0,5)},  # item
+                 'room rruuull': {'state': 0, 'layout': 0, 'final spawn': random.randint(1,6), 'item spawn': random.randint(0,5)}}  # final
 
     # Hearts and time stuff
     hearts = pygame.image.load("assets/tiles/heart.png").convert()
@@ -107,7 +107,7 @@ def main(player, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):

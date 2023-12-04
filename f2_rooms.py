@@ -97,7 +97,7 @@ def room_uulll1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -273,7 +273,7 @@ def room_uulll0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -462,7 +462,7 @@ def room_uull2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -661,7 +661,7 @@ def room_uull1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -869,7 +869,7 @@ def room_uull0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -1048,7 +1048,7 @@ def room_uurr2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -1230,7 +1230,7 @@ def room_uurr1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -1423,7 +1423,7 @@ def room_uurr0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -1599,7 +1599,7 @@ def room_uul2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -1806,7 +1806,7 @@ def room_uul1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2020,7 +2020,7 @@ def room_uul0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2198,7 +2198,7 @@ def room_uuu2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2378,7 +2378,7 @@ def room_uuu1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2565,7 +2565,7 @@ def room_uuu0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2744,7 +2744,7 @@ def room_uur2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -2951,7 +2951,7 @@ def room_uur1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -3165,7 +3165,7 @@ def room_uur0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -3346,7 +3346,7 @@ def room_uu2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -3625,7 +3625,7 @@ def room_uu1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -3911,7 +3911,7 @@ def room_uu0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -4090,7 +4090,7 @@ def room_u2(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -4297,7 +4297,7 @@ def room_u1(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):
@@ -4511,7 +4511,7 @@ def room_u0(player, room_data, floor_states):
             current_time = pygame.time.get_ticks()
             if current_time - LAST_DMG_TIME >= 1000:
                 pygame.mixer.Sound.play(pygame.mixer.Sound("assets/tiles/hurt.wav"))
-                player.hp -= BP_ATK
+                player.hp -= LVLDMG
                 LAST_DMG_TIME = current_time
 
         if pygame.sprite.spritecollide(player, arrows, True):

@@ -36,47 +36,47 @@ def draw_room0(room):
     pass
 
 
-def r0_e1(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+def r0_e1(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale))
 
 
-def r0_e2(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r0_e2(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE,  hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
 
-def r0_e3(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r0_e3(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
 
 
-def r0_e4(player):
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3))
+def r0_e4(player, scale = 1):
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3, hp = BP_HP*scale))
 
 
-def r0_e5(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-    guards.add(Guard(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3, player))
+def r0_e5(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+    guards.add(Guard(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3, player, hp = GUARD_HP*scale))
 
-def r0_e6(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-    guards.add(Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+def r0_e6(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
+    guards.add(Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale))
 def draw_room1(room):
     """Large wall in the middle"""
     # Create the specific obstacles
@@ -88,48 +88,48 @@ def draw_room1(room):
 
 # The parenthesis can house the enemy stats if wanted
 
-def r1_e1(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+def r1_e1(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale))
 
 
-def r1_e2(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r1_e2(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
 
-def r1_e3(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r1_e3(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
 
 
-def r1_e4(player):
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r1_e4(player, scale = 1):
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
 
-def r1_e5(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE*3))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r1_e5(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
 
-def r1_e6(playerp):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE))
+def r1_e6(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale))
 
 
 def draw_room2(room):
@@ -157,40 +157,40 @@ def draw_room2(room):
     room.blit(basic_wall.convert(), (JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3))
 
 
-def r2_e1(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-def r2_e2(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3),
-                 Sentry(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r2_e1(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+def r2_e2(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
-def r2_e3(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r2_e3(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
-def r2_e4(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+def r2_e4(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale))
 
-def r2_e5(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, player),
-                Guard(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, player))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r2_e5(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale),
+                Guard(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
 
 def draw_room3(room):
@@ -222,23 +222,23 @@ def draw_room3(room):
     floor_gashes.add(FloorGash(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE * 2, TILE_SIZE, TILE_SIZE))
     room.blit(floor_gash.convert(), (JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE * 2))
 
-def r3_e1(player):
-    sentries.add(Sentry(JAIL_X_START, JAIL_Y_START),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player),
-                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player))
+def r3_e1(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START, JAIL_Y_START, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale),
+                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale))
 
-def r3_e2(player):
-    sentries.add(Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START),
-                 Sentry(JAIL_X_START, JAIL_Y_END - TILE_SIZE))
-    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player),
-                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player))
+def r3_e2(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale),
+                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale))
 
-def r3_e3(player):
-    sentries.add(Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START),
-                 Sentry(JAIL_X_START, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_START, JAIL_Y_START),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r3_e3(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START, JAIL_Y_START, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
 def draw_room4(room):
     """Center island defined by floor gashes"""
     floor_gash.set_colorkey((255, 255, 255))
@@ -255,42 +255,42 @@ def draw_room4(room):
     floor_gashes.add(FloorGash(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, TILE_SIZE, TILE_SIZE))
     room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3))
 
-def r4_e1(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3))
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r4_e1(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*6, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale))
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
-def r4_e2(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*5, JAIL_Y_START + TILE_SIZE*3),
-                 Sentry(JAIL_X_START + TILE_SIZE*7, JAIL_Y_START + TILE_SIZE*3))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r4_e2(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*5, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE*7, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
-def r4_e3(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE))
+def r4_e3(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale))
 
-def r4_e4(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r4_e4(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE*4, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE*8, JAIL_Y_START + TILE_SIZE*3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
-def r4_e5(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*5, JAIL_Y_START + TILE_SIZE*3),
-                 Sentry(JAIL_X_START + TILE_SIZE*7, JAIL_Y_START + TILE_SIZE*3))
-    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player),
-                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player))
+def r4_e5(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE*5, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE*7, JAIL_Y_START + TILE_SIZE*3, hp = SENTRY_HP*scale))
+    guards.add(Guard(JAIL_X_START + TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale),
+                Guard(JAIL_X_END - TILE_SIZE*2, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale))
 def draw_room5(room):
     """Scattered Holes"""
     floor_gash.set_colorkey((255, 255, 255))
@@ -318,126 +318,134 @@ def draw_room5(room):
     room.blit(floor_gash.convert(), (JAIL_X_START + TILE_SIZE * 11, JAIL_Y_START + TILE_SIZE * 3))
 
 
-def r5_e1(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r5_e1(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = SENTRY_HP*scale))
 
 
-def r5_e2(player):
-    sentries.add(Sentry(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3),
-                 Sentry(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r5_e2(player, scale = 1):
+    sentries.add(Sentry(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, hp = SENTRY_HP*scale),
+                 Sentry(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, hp = SENTRY_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
 
 
-def r5_e3(player):
-    patrols.add(Patrol(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3),
-                Patrol(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
+def r5_e3(player, scale = 1):
+    patrols.add(Patrol(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = PAT_HP*scale),
+                Patrol(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = PAT_HP*scale))
 
 
-def r5_e4(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player),
-               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player))
+def r5_e4(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, player, hp = GUARD_HP*scale))
 
 
-def r5_e5(player):
-    guards.add(Guard(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, player),
-               Guard(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, player))
-    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE),
-                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE))
-def room_choice(background, room, enemy, player):
+def r5_e5(player, scale = 1):
+    guards.add(Guard(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale),
+               Guard(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE * 3, player, hp = GUARD_HP*scale))
+    broken_prisoners.add(Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_START + TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_START + TILE_SIZE, hp = BP_HP*scale),
+                         Broken_Prisoner(JAIL_X_END - TILE_SIZE, JAIL_Y_END - TILE_SIZE, hp = BP_HP*scale))
+def room_choice(background, room, enemy, player, scale = 1):
     """randomize room choice"""
     if room == 0:
         draw_room0(background)
         if enemy == 0:
             pass
         elif enemy == 1:
-            r0_e1(player)
+            r0_e1(player, scale)
         elif enemy == 2:
-            r0_e2(player)
+            r0_e2(player, scale)
         elif enemy == 3:
-            r0_e3(player)
+            r0_e3(player, scale)
         elif enemy == 4:
-            r0_e4(player)
+            r0_e4(player, scale)
         elif enemy == 5:
-            r0_e5(player)
+            r0_e5(player, scale)
         elif enemy == 6:
-            r0_e6(player)
+            r0_e6(player, scale)
 
     elif room == 1:
         draw_room1(background)
         if enemy == 0:
             pass
         elif enemy == 1:
-            r1_e1(player)
+            r1_e1(player, scale)
         elif enemy == 2:
-            r1_e2(player)
+            r1_e2(player, scale)
         elif enemy == 3:
-            r1_e3(player)
+            r1_e3(player, scale)
         elif enemy == 4:
-            r1_e4(player)
+            r1_e4(player, scale)
         elif enemy == 5:
-            r1_e5(player)
+            r1_e5(player, scale)
         elif enemy == 6:
-            r1_e6(player)
+            r1_e6(player, scale)
 
     elif room == 2:
         draw_room2(background)
         if enemy == 0:
-            r2_e1(player)
-        elif enemy == (1 or 5):
-            r2_e2(player)
-        elif enemy == 2:
-            r2_e3(player)
+            pass
+        elif enemy == 1:
+            r2_e1(player, scale)
+        elif enemy == (2 or 6):
+            r2_e2(player, scale)
         elif enemy == 3:
-            r2_e4(player)
+            r2_e3(player, scale)
         elif enemy == 4:
-            r2_e5(player)
+            r2_e4(player, scale)
+        elif enemy == 5:
+            r2_e5(player, scale)
 
     elif room == 3:
         draw_room3(background)
-        if enemy == (0 or 3):
-            r3_e1(player)
+        if enemy == 0:
+            pass
+        elif enemy == (6 or 3):
+            r3_e1(player, scale)
         elif enemy == (1 or 4):
-            r3_e2(player)
+            r3_e2(player, scale)
         elif enemy == (2 or 5):
-            r3_e3(player)
+            r3_e3(player, scale)
 
 
     elif room == 4:
         draw_room4(background)
         if enemy == 0:
-            r4_e1(player)
+            pass
+        if enemy == 6:
+            r4_e1(player, scale)
         elif enemy == 1:
-            r4_e2(player)
+            r4_e2(player, scale)
         elif enemy == 2:
-            r4_e3(player)
-        elif enemy == 3:
-            r4_e4(player)
+            r4_e3(player, scale)
+        elif enemy == (3 or 5):
+            r4_e4(player, scale)
         elif enemy == 4:
-            r4_e5(player)
+            r4_e5(player, scale)
 
     elif room == 5:
         draw_room5(background)
         if enemy == 0:
-            r5_e1(player)
-        elif enemy == 1:
-            r5_e2(player)
+            pass
+        elif enemy == 6:
+            r5_e1(player, scale)
+        elif enemy == (1 or 5):
+            r5_e2(player, scale)
         elif enemy == 2:
-            r5_e3(player)
+            r5_e3(player, scale)
         elif enemy == 3:
-            r5_e4(player)
+            r5_e4(player, scale)
         elif enemy == 4:
-            r5_e5(player)
+            r5_e5(player, scale)

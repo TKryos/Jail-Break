@@ -122,7 +122,7 @@ def item_choice(item_num, surface):
         atk_boosts.draw(surface)
     if item_num == 5:
         rng_boosts.add(RngUp(JAIL_X_START + TILE_SIZE * 6, JAIL_Y_START + TILE_SIZE * 3))
-        rng_boosts.add(surface)
+        rng_boosts.draw(surface)
 
 def pots1(con, surface):
     if con == 0:
@@ -144,5 +144,5 @@ def pots2(pots, surface):
             pot.draw(surface)
 
     if pots == 1:
-        hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE * 3, JAIL_Y_START + TILE_SIZE))
-        hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE * 9, JAIL_Y_START + TILE_SIZE))
+        hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE * 4, JAIL_Y_START + TILE_SIZE))
+        hp_pots.add(HealthPot(JAIL_X_START + TILE_SIZE * 8, JAIL_Y_START + TILE_SIZE))
